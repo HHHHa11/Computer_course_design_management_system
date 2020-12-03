@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.3.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+    <!--    加载属性文件-->
+    <context:property-placeholder location="classpath:resource.properties"/>
+    <!--    配置扫描器-->
+    <context:component-scan base-package="com.design.controller"/>
+    <!--  注解驱动：配置处理器映射器和适配器  -->
+    <mvc:annotation-driven />
+    <!--  配置静态资源的访问映射，此配置中的文件，将不被前端控制器拦截  -->
+    <mvc:resources mapping="/js/**" location="/js/"/>
+    <mvc:resources mapping="/css/**" location="/css/"/>
+    <mvc:resources mapping="/fonts/**" location="/fonts/"/>
+    <mvc:resources mapping="/images/**" location="/images/"/>
+    <mvc:resources mapping="/static/**" location="/static/"/>
+    <!--  配置视图解释器  -->
+    <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+<!--    应当注意，主页、登录页面不需要拦截-->
+
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**" />
+            
+            
+            <mvc:exclude-mapping path="/"/>
+            <mvc:exclude-mapping path="/index"/>
+            <mvc:exclude-mapping path="/login"/>
+            <!--    从分析来看这个interceptos是拦截所有请求，在console中可以看到拦截了配置好的-->
+            <!--    /static/下的文件，因此把这个也加上-->
+            <mvc:exclude-mapping path="/static/**"/>
+            <!--      登录请求不拦截，但是会有漏洞：请求表单      -->
+            <mvc:exclude-mapping path="/loginUser"/>
+            <bean class="com.design.Interceptor.AdminResourceInterceptor"/>
+        </mvc:interceptor>
+
+
+
+    </mvc:interceptors>
+
+</beans>
