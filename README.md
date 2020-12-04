@@ -27,8 +27,15 @@
          
 #做单点登录时遇到的坑：在shiro验证中需要到User的username和password进行加密验证
 #shiro验证的核心是以session为核心的验证
+#成功登录后会有一个全局的session（见MyRealm文件的写法）
 
 #还能实现对与登录用户的非法访问的拦截
+#MyRealm中重写了doGetAuthorizationInfo方法
+#具体实现方法是在doGetAuthorizationInfo方法中获取用户的个人凭证
+#并将用户的个人凭证写入AuthorizationInfo对象中并提交给shiro.
+#最后在applicationContext.xml中的shiroFilter中按角色对url进行角色授权管理
+
+#AuthorizationInfo方法只在相应url验证时被调用。
 
 
 
