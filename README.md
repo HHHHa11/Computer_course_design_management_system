@@ -28,6 +28,7 @@
 #做单点登录时遇到的坑：在shiro验证中需要到User的username和password进行加密验证
 #shiro验证的核心是以session为核心的验证
 
+#v1.0
 #该版本只是实现了最基本的分角色登录
 
 
