@@ -32,6 +32,29 @@
     </style>
     <!-- Custom styles for this template -->
     <link href="/static/bootstrap-4.5.3-examples/dashboard/dashboard.css" rel="stylesheet">
+    <script type="text/javascript">
+        //登出操作
+        function showsignoutmodal() {
+
+            //这里将Modal连接/显示出来
+            $("#logout").modal('show')
+            //绑定Modal中提交键中的内容
+            $('#btn_submit').click(function () {
+                //如果触发了该按键则执行logout操作
+                window.location.href = '/user/logout';
+
+            })
+
+
+
+        }
+
+
+
+
+
+
+    </script>
 </head>
 <body>
 <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
@@ -43,10 +66,34 @@
     <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
     <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-            <a class="nav-link" href="#">Sign out</a>
+            <a class="nav-link" href="javascript:showsignoutmodal()">安全退出</a>
         </li>
     </ul>
 </nav>
+
+
+<!-- Modal -->
+<div class="modal fade" id="logout" data-backdrop="static" data-keyboard="false" tabindex="-1"
+     aria-labelledby="logoutLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">系统提示</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                您确定要退出系统吗？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="btn_submit">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <div class="container-fluid">
     <div class="row">
