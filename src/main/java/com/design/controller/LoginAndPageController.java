@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
 import static jdk.internal.org.objectweb.asm.Type.getType;
 
 @Controller
-public class PageController {
+public class LoginAndPageController {
     @Resource
     private UserService userService;
 
