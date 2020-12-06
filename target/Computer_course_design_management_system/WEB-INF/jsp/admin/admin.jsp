@@ -29,6 +29,11 @@
                 font-size: 3.5rem;
             }
         }
+        .button-style-for-light{
+            width: 100%;
+            text-align: left;
+
+        }
     </style>
     <!-- Custom styles for this template -->
     <link href="/static/bootstrap-4.5.3-examples/dashboard/dashboard.css" rel="stylesheet">
@@ -99,77 +104,105 @@
     <div class="row">
         <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
             <div class="sidebar-sticky pt-3">
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">
-                            <span data-feather="home"></span>
-                            Dashboard <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="file"></span>
-                            Orders
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="shopping-cart"></span>
-                            Products
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="users"></span>
-                            Customers
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="bar-chart-2"></span>
-                            Reports
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="layers"></span>
-                            Integrations
-                        </a>
-                    </li>
-                </ul>
+                <%--       单击后的下弹框         --%>
+                <div class="accordion" id="accordionExample">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                                        data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Collapsible Group Item #1
+                                </button>
+                            </h2>
+                        </div>
+                        <%--对于不需要一加载就显示的框来说--%>
+                        <%--     class="collapse show"要变成class="collapse"--%>
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                             data-parent="#accordionExample">
+                            <div class="card-body">
+                                <div style="width:100%">
+                                    <button type="button" class="btn btn-light button-style-for-light" >
+                                        <span data-feather="file"></span>
+                                        学期管理
+                                    </button><br>
+                                    <button type="button" class="btn btn-light button-style-for-light">学生信息管理</button><br>
+                                    <button type="button" class="btn btn-light button-style-for-light">Secondary</button><br>
+                                    <button type="button" class="btn btn-light button-style-for-light">Secondary</button><br>
+                                    <button type="button" class="btn btn-light button-style-for-light">Secondary</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                    <span>Saved reports</span>
-                    <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
-                        <span data-feather="plus-circle"></span>
-                    </a>
-                </h6>
-                <ul class="nav flex-column mb-2">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="file-text"></span>
-                            Current month
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="file-text"></span>
-                            Last quarter
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="file-text"></span>
-                            Social engagement
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="file-text"></span>
-                            Year-end sale
-                        </a>
-                    </li>
-                </ul>
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link btn-block text-left collapsed" type="button"
+                                        data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
+                                        aria-controls="collapseTwo">
+                                    Collapsible Group Item #2
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                             data-parent="#accordionExample">
+                            <div class="card-body">
+                                <div style="width:100%">
+                                    <button type="button" class="btn btn-light button-style-for-light">
+                                        <span data-feather="file"></span>
+                                        学期管理
+                                    </button>
+                                    <br>
+                                    <button type="button" class="btn btn-light button-style-for-light">学生信息管理</button>
+                                    <br>
+                                    <button type="button" class="btn btn-light button-style-for-light">Secondary
+                                    </button>
+                                    <br>
+                                    <button type="button" class="btn btn-light button-style-for-light">Secondary
+                                    </button>
+                                    <br>
+                                    <button type="button" class="btn btn-light button-style-for-light">Secondary
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header" id="headingThree">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link btn-block text-left collapsed" type="button"
+                                        data-toggle="collapse" data-target="#collapseThree" aria-expanded="false"
+                                        aria-controls="collapseThree">
+                                    Collapsible Group Item #3
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                             data-parent="#accordionExample">
+                            <div class="card-body">
+                                <div style="width:100%">
+                                    <button type="button" class="btn btn-light button-style-for-light">
+                                        <span data-feather="file"></span>
+                                        学期管理
+                                    </button>
+                                    <br>
+                                    <button type="button" class="btn btn-light button-style-for-light">学生信息管理</button>
+                                    <br>
+                                    <button type="button" class="btn btn-light button-style-for-light">Secondary
+                                    </button>
+                                    <br>
+                                    <button type="button" class="btn btn-light button-style-for-light">Secondary
+                                    </button>
+                                    <br>
+                                    <button type="button" class="btn btn-light button-style-for-light">Secondary
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
             </div>
         </nav>
 
