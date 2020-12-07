@@ -145,6 +145,8 @@ public class LoginAndPageController {
 
 
     }
+    @RequestMapping("/semestermanage")
+    public String semestermanage(){return "admin/semestermanage";}
 
 
 

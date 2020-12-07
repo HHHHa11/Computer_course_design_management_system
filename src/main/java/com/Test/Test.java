@@ -34,7 +34,7 @@ public class Test {
         System.out.println("classes" + ":" + user.getClasses());
         System.out.println("identity" + ":" + user.getIdentity());
         System.out.println("avatar" + ":" + user.getAvatar());
-        System.out.println("topic_name" + ":" + user.getTopic_name());
+        System.out.println("topic_name" + ":" + user.getTopicName());
         System.out.println("score" + ":" + user.getScore());
 
     }

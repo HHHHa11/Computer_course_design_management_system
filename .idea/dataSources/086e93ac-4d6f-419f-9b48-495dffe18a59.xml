@@ -833,7 +833,7 @@ SELECT|sys.sys_config:null
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="258" parent="242" name="class">
+    <column id="258" parent="242" name="class_name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>

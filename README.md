@@ -62,3 +62,7 @@
 
 #v4.0
 #更新了左边的框
+
+#v5.0
+#該版本主要新加了easyui彈出框和一個MyBatis Generator逆向工程生成代码器
+#generatorConfig.xml

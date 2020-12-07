@@ -1,7 +1,7 @@
 package com.design.service.Impl;
 
 
-import com.design.dao.UserDao;
+import com.design.dao.UserMapper;
 import com.design.entity.User;
 import com.design.entity.UserExample;
 import com.design.service.UserService;
@@ -14,7 +14,7 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    private UserDao userDao;
+    private UserMapper UserMapper;
 
     @Override
     public User getUserByUsername(String username) {
@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
         System.out.println("3");
         criteria.andUsernameEqualTo(username);
         System.out.println("4");
-        List<User> list = userDao.selectByExampleWithBLOBs(example);
+        List<User> list = UserMapper.selectByExampleWithBLOBs(example);
         System.out.println("5");
         if (list != null && list.size() > 0) {
             return list.get(0);
