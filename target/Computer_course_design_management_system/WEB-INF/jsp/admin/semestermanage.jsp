@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>博客类别管理页面</title>
+    <title>学期类别管理页面</title>
     <link rel="stylesheet" type="text/css"
           href="/static/static-easyui/plugin/jeasyui/themes/default/easyui.css">
     <link rel="stylesheet" type="text/css"
@@ -45,7 +45,7 @@
         }
 
         function openSemesterTypeAddDialog() {
-            $("#dlg").dialog("open").dialog("setTitle", "添加博客类别信息");
+            $("#dlg").dialog("open").dialog("setTitle", "添加学期类别信息");
             url = "/admin/semesterType/insert";
         }
 
@@ -56,7 +56,7 @@
                 return;
             }
             var row = selectedRows[0];
-            $("#dlg").dialog("open").dialog("setTitle", "编辑博客类别信息");
+            $("#dlg").dialog("open").dialog("setTitle", "编辑学期类别信息");
             $("#fm").form("load", row);
             url = "/admin/semesterType/update/" + row.id;
         }
@@ -94,14 +94,14 @@
     </script>
 </head>
 <body style="margin: 1px">
-<table id="dg" title="博客类别管理" class="easyui-datagrid"
+<table id="dg" title="学期类别管理" class="easyui-datagrid"
        fitColumns="true" pagination="true" rownumbers="true"
        url="/admin/semesterType/list" fit="true" toolbar="#tb">
     <thead>
     <tr>
         <th field="cb" checkbox="true" align="center"></th>
         <th field="id" width="20" align="center">编号</th>
-        <th field="semester" width="100" align="center">博客类型名称</th>
+        <th field="semester" width="100" align="center">学期类型名称</th>
     </tr>
     </thead>
 </table>
@@ -121,7 +121,7 @@
     <form id="fm" method="post">
         <table cellspacing="8px">
             <tr>
-                <td>博客类别名称：</td>
+                <td>学期类别名称：</td>
                 <td><input type="text" id="semester" name="semester" class="easyui-validatebox" required="true"/></td>
             </tr>
             <%--一个表单下，如果只有一个文本框时，按下回车将会触发表单的提交事件，加上hiddentext可以防止提交--%>

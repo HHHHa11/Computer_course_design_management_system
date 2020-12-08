@@ -68,8 +68,6 @@
 
 #generatorConfig.xml
 
-#v6.0
-#该版本实现了基本的对semester表的增删改查
+#实现了基本的对semester表的增删改查
 
-#v7.0
-#该版本是有custom的完整版本
+#有custom的完整版本
