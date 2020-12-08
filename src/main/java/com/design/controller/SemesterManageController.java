@@ -1,66 +1,68 @@
-//package com.design.controller;
-//
-//import com.iustu.common.pojo.MyResult;
-//import com.iustu.entity.BlogType;
-//import com.iustu.service.BlogService;
-//import com.iustu.service.BlogTypeService;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.stereotype.Controller;
-//import org.springframework.web.bind.annotation.PathVariable;
-//import org.springframework.web.bind.annotation.RequestMapping;
-//import org.springframework.web.bind.annotation.RequestMethod;
-//import org.springframework.web.bind.annotation.ResponseBody;
-//
-//import java.util.Date;
-//import java.util.List;
-//
-//@Controller
-//@RequestMapping(value = "/admin/blogType", method = RequestMethod.POST)
-//public class SemesterManageController {
-//
-//    @Autowired
-//    private BlogTypeService blogTypeService;
+package com.design.controller;
+
+import com.design.pojo.MyResult;
+import com.design.entity.SemesterType;
+import com.design.service.SemesterTypeService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.Date;
+import java.util.List;
+
+@Controller
+@RequestMapping(value = "/admin/semesterType", method = RequestMethod.POST)
+public class SemesterManageController {
+
+    @Autowired
+    private SemesterTypeService semesterTypeService;
 //    @Autowired
 //    private BlogService blogService;
-//
-//    @RequestMapping("/list")
-//    @ResponseBody
-//    public MyResult getBlogTypeListByPage(){
-//        MyResult result = new MyResult();
-//        List<BlogType> list = blogTypeService.getBlogTypeList();
-//        result.setRows(list);
-//        result.setTotal(blogTypeService.getBlogTypeCount());
-//        return result;
-//    }
-//
-//
-//    @RequestMapping("/insert")
-//    @ResponseBody
-//    public String insertBlogType(BlogType blogType){
-//        blogTypeService.insertBlogType(blogType);
-//        System.out.println("insert:" + new Date().toString() + "  " + blogType.getId());
-//        return "success";
-//    }
-//
-//    @RequestMapping("/update/{id}")
-//    @ResponseBody
-//    public String updateBlogType(@PathVariable int id, BlogType blogType){
-//        blogType.setId(id);
-//        blogTypeService.updateBlogType(blogType);
-//        System.out.println("update:" + new Date().toString() + "  " + blogType.getId());
-//        return "success";
-//    }
-//
-//    @RequestMapping("/delete/{ids}")
-//    @ResponseBody
-//    public String deleteBlogType(@PathVariable String ids){
-//        String[] strings = ids.split(",");
-//        for(String str : strings){
-//            int id = Integer.parseInt(str);
-//            //删除关联的blog
+
+    @RequestMapping("/list")
+    @ResponseBody
+    public MyResult getSemesterTypeListByPage(){
+        MyResult result = new MyResult();
+        List<SemesterType> list = semesterTypeService.getSemesterTypeList();
+//        System.out.println(list);
+//        System.out.println(list.get(0).getId());
+//        System.out.println(list.get(1).getSemester());
+        result.setRows(list);
+        result.setTotal(semesterTypeService.getSemesterTypeCount());
+        return result;
+    }
+
+
+    @RequestMapping("/insert")
+    @ResponseBody
+    public String insertSemesterType(SemesterType semesterType){
+        semesterTypeService.insertSemesterType(semesterType);
+        System.out.println("insert:" + new Date().toString() + "  " + semesterType.getId());
+        return "success";
+    }
+
+    @RequestMapping("/update/{id}")
+    @ResponseBody
+    public String updateSemesterType(@PathVariable int id, SemesterType semesterType){
+        semesterType.setId(id);
+        semesterTypeService.updateSemesterType(semesterType);
+        System.out.println("update:" + new Date().toString() + "  " + semesterType.getId());
+        return "success";
+    }
+
+    @RequestMapping("/delete/{ids}")
+    @ResponseBody
+    public String deleteSemesterType(@PathVariable String ids){
+        String[] strings = ids.split(",");
+        for(String str : strings){
+            int id = Integer.parseInt(str);
+            //删除关联的blog
 //            blogService.deleteBlogByTypeId(id);
-//            blogTypeService.deleteBlogType(id);
-//        }
-//        return "success";
-//    }
-//}
+            semesterTypeService.deleteSemesterType(id);
+        }
+        return "success";
+    }
+}

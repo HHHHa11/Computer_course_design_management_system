@@ -20,7 +20,7 @@
 
         var url;
 
-        function deletesemester() {
+        function deleteSemesterType() {
             var selectedRows = $("#dg").datagrid("getSelections");
             if (selectedRows.length == 0) {
                 $.messager.alert("系统提示", "请选择要删除的数据！");
@@ -33,7 +33,7 @@
             var ids = strIds.join(",");
             $.messager.confirm("系统提示", "您确定要删除这<font color=red>" + selectedRows.length + "</font>条数据吗？", function (r) {
                 if (r) {
-                    $.post("/admin/blogType/delete/" + ids, {}, function (result) {
+                    $.post("/admin/semesterType/delete/" + ids, {}, function (result) {
                         if (result == "success") {
                             $("#dg").datagrid("reload");
                         } else {
@@ -44,12 +44,12 @@
             });
         }
 
-        function openBlogTypeAddDialog() {
+        function openSemesterTypeAddDialog() {
             $("#dlg").dialog("open").dialog("setTitle", "添加博客类别信息");
-            url = "/admin/blogType/insert";
+            url = "/admin/semesterType/insert";
         }
 
-        function openBlogTypeModifyDialog() {
+        function openSemesterTypeModifyDialog() {
             var selectedRows = $("#dg").datagrid("getSelections");
             if (selectedRows.length != 1) {
                 $.messager.alert("系统提示", "请选择一条要编辑的数据！");
@@ -58,10 +58,10 @@
             var row = selectedRows[0];
             $("#dlg").dialog("open").dialog("setTitle", "编辑博客类别信息");
             $("#fm").form("load", row);
-            url = "/admin/blogType/update/" + row.id;
+            url = "/admin/semesterType/update/" + row.id;
         }
 
-        function saveBlogType() {
+        function saveSemesterType() {
             $("#fm").form("submit", {
                 url: url,
                 onSubmit: function () {
@@ -87,7 +87,7 @@
             $("#orderNo").val("");
         }
 
-        function closeBlogTypeDialog() {
+        function closeSemesterTypeDialog() {
             $("#dlg").dialog("close");
             resetValue();
         }
@@ -96,21 +96,21 @@
 <body style="margin: 1px">
 <table id="dg" title="博客类别管理" class="easyui-datagrid"
        fitColumns="true" pagination="true" rownumbers="true"
-       url="/admin/blogType/list" fit="true" toolbar="#tb">
+       url="/admin/semesterType/list" fit="true" toolbar="#tb">
     <thead>
     <tr>
         <th field="cb" checkbox="true" align="center"></th>
         <th field="id" width="20" align="center">编号</th>
-        <th field="typeName" width="100" align="center">博客类型名称</th>
+        <th field="semester" width="100" align="center">博客类型名称</th>
     </tr>
     </thead>
 </table>
 <div id="tb">
     <div>
-        <a href="javascript:openBlogTypeAddDialog()" class="easyui-linkbutton" iconCls="icon-add" plain="true">添加</a>
-        <a href="javascript:openBlogTypeModifyDialog()" class="easyui-linkbutton" iconCls="icon-edit"
+        <a href="javascript:openSemesterTypeAddDialog()" class="easyui-linkbutton" iconCls="icon-add" plain="true">添加</a>
+        <a href="javascript:openSemesterTypeModifyDialog()" class="easyui-linkbutton" iconCls="icon-edit"
            plain="true">修改</a>
-        <a href="javascript:deleteBlogType()" class="easyui-linkbutton" iconCls="icon-remove" plain="true">删除</a>
+        <a href="javascript:deleteSemesterType()" class="easyui-linkbutton" iconCls="icon-remove" plain="true">删除</a>
     </div>
 </div>
 
@@ -122,7 +122,7 @@
         <table cellspacing="8px">
             <tr>
                 <td>博客类别名称：</td>
-                <td><input type="text" id="typeName" name="typeName" class="easyui-validatebox" required="true"/></td>
+                <td><input type="text" id="semester" name="semester" class="easyui-validatebox" required="true"/></td>
             </tr>
             <%--一个表单下，如果只有一个文本框时，按下回车将会触发表单的提交事件，加上hiddentext可以防止提交--%>
             <input id="hiddenText" type="text" style="display:none"/>

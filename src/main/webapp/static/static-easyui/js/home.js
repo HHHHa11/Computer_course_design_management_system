@@ -14,8 +14,8 @@ function getTypeList() {
 }
 
 //按分类得到文章列表
-function getArticlesByType(blogType) {
-    window.location.href = "/index.html?blogType=" + blogType;
+function getArticlesByType(semesterType) {
+    window.location.href = "/index.html?semesterType=" + semesterType;
 }
 
 //搜索文章
@@ -74,7 +74,7 @@ function getArticleListOrderByClickCount() {
 }
 
 //加载更多文章
-function addMore(page, rows, blogType, title) {
+function addMore(page, rows, semesterType, title) {
 
     var mobileMatcher = window.matchMedia('(max-width:768px)');
     var isEnd = false;
@@ -85,7 +85,7 @@ function addMore(page, rows, blogType, title) {
     $.post("/article/list", {
             page: page,
             rows: rows,
-            blogType: blogType,
+            semesterType: semesterType,
             title: title
         },
         function (data) {

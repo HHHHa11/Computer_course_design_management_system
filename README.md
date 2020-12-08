@@ -67,3 +67,6 @@
 #該版本主要新加了easyui彈出框和一個MyBatis Generator逆向工程生成代码器
 
 #generatorConfig.xml
+
+#v6.0
+#该版本实现了基本的对semester表的增删改查
