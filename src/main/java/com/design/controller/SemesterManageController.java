@@ -39,6 +39,8 @@ public class SemesterManageController {
     @RequestMapping("/insert")
     @ResponseBody
     public String insertSemesterType(SemesterType semesterType){
+        System.out.println("-----------------------------------");
+        System.out.println(semesterType.getSemester());
         semesterTypeService.insertSemesterType(semesterType);
         System.out.println("insert:" + new Date().toString() + "  " + semesterType.getId());
         return "success";
