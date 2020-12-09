@@ -68,9 +68,13 @@
 
 #generatorConfig.xml
 
+##时刻注意
+
 #实现了基本的对semester表的增删改查
 
 #有custom的完整版本
 
 
 ####缺陷，还没实现分页
+
+#v6.0

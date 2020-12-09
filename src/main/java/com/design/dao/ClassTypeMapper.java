@@ -3,12 +3,7 @@ package com.design.dao;
 import com.design.entity.ClassType;
 import com.design.entity.ClassTypeExample;
 import java.util.List;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.ResultMap;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
 
 public interface ClassTypeMapper {
     /**
@@ -33,10 +28,6 @@ public interface ClassTypeMapper {
      *
      * @mbggenerated
      */
-    @Delete({
-        "delete from class_type",
-        "where id = #{id,jdbcType=INTEGER}"
-    })
     int deleteByPrimaryKey(Integer id);
 
     /**
@@ -45,10 +36,6 @@ public interface ClassTypeMapper {
      *
      * @mbggenerated
      */
-    @Insert({
-        "insert into class_type (id, class_name)",
-        "values (#{id,jdbcType=INTEGER}, #{className,jdbcType=VARCHAR})"
-    })
     int insert(ClassType record);
 
     /**
@@ -73,13 +60,6 @@ public interface ClassTypeMapper {
      *
      * @mbggenerated
      */
-    @Select({
-        "select",
-        "id, class_name",
-        "from class_type",
-        "where id = #{id,jdbcType=INTEGER}"
-    })
-    @ResultMap("BaseResultMap")
     ClassType selectByPrimaryKey(Integer id);
 
     /**
@@ -112,10 +92,5 @@ public interface ClassTypeMapper {
      *
      * @mbggenerated
      */
-    @Update({
-        "update class_type",
-        "set class_name = #{className,jdbcType=VARCHAR}",
-        "where id = #{id,jdbcType=INTEGER}"
-    })
     int updateByPrimaryKey(ClassType record);
 }

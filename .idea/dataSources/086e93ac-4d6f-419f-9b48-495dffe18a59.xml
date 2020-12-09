@@ -846,7 +846,6 @@ SELECT|sys.sys_config:null
       <Position>1</Position>
       <DataType>int(5)|0s</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>null</SequenceIdentity>
     </column>
     <column id="261" parent="243" name="semester">
       <Position>2</Position>

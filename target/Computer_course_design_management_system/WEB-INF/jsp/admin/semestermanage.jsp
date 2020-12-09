@@ -128,6 +128,16 @@
             <input id="hiddenText" type="text" style="display:none"/>
         </table>
     </form>
+
+    <div>
+        <form id="form_excel" name="form_excel" action="/DoExcel" method="post"
+              enctype="multipart/form-data">
+            <input type="file" id="file_excel" name="file_excel"/>
+            <input type="submit"/>
+        </form>
+
+    </div>
+
 </div>
 
 <div id="dlg-buttons">

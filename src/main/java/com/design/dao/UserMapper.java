@@ -3,12 +3,7 @@ package com.design.dao;
 import com.design.entity.User;
 import com.design.entity.UserExample;
 import java.util.List;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.ResultMap;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
 
 public interface UserMapper {
     /**
@@ -33,10 +28,6 @@ public interface UserMapper {
      *
      * @mbggenerated
      */
-    @Delete({
-        "delete from user",
-        "where id = #{id,jdbcType=INTEGER}"
-    })
     int deleteByPrimaryKey(Integer id);
 
     /**
@@ -45,16 +36,6 @@ public interface UserMapper {
      *
      * @mbggenerated
      */
-    @Insert({
-        "insert into user (id, name, ",
-        "username, password, ",
-        "classes, identity, ",
-        "avatar, score, topic_name)",
-        "values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, ",
-        "#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, ",
-        "#{classes,jdbcType=VARCHAR}, #{identity,jdbcType=VARCHAR}, ",
-        "#{avatar,jdbcType=VARCHAR}, #{score,jdbcType=INTEGER}, #{topicName,jdbcType=LONGVARCHAR})"
-    })
     int insert(User record);
 
     /**
@@ -87,13 +68,6 @@ public interface UserMapper {
      *
      * @mbggenerated
      */
-    @Select({
-        "select",
-        "id, name, username, password, classes, identity, avatar, score, topic_name",
-        "from user",
-        "where id = #{id,jdbcType=INTEGER}"
-    })
-    @ResultMap("ResultMapWithBLOBs")
     User selectByPrimaryKey(Integer id);
 
     /**
@@ -134,18 +108,6 @@ public interface UserMapper {
      *
      * @mbggenerated
      */
-    @Update({
-        "update user",
-        "set name = #{name,jdbcType=VARCHAR},",
-          "username = #{username,jdbcType=VARCHAR},",
-          "password = #{password,jdbcType=VARCHAR},",
-          "classes = #{classes,jdbcType=VARCHAR},",
-          "identity = #{identity,jdbcType=VARCHAR},",
-          "avatar = #{avatar,jdbcType=VARCHAR},",
-          "score = #{score,jdbcType=INTEGER},",
-          "topic_name = #{topicName,jdbcType=LONGVARCHAR}",
-        "where id = #{id,jdbcType=INTEGER}"
-    })
     int updateByPrimaryKeyWithBLOBs(User record);
 
     /**
@@ -154,16 +116,5 @@ public interface UserMapper {
      *
      * @mbggenerated
      */
-    @Update({
-        "update user",
-        "set name = #{name,jdbcType=VARCHAR},",
-          "username = #{username,jdbcType=VARCHAR},",
-          "password = #{password,jdbcType=VARCHAR},",
-          "classes = #{classes,jdbcType=VARCHAR},",
-          "identity = #{identity,jdbcType=VARCHAR},",
-          "avatar = #{avatar,jdbcType=VARCHAR},",
-          "score = #{score,jdbcType=INTEGER}",
-        "where id = #{id,jdbcType=INTEGER}"
-    })
     int updateByPrimaryKey(User record);
 }
