@@ -130,7 +130,7 @@
     </form>
 
     <div>
-        <form id="form_excel" name="form_excel" action="/DoExcel" method="post"
+        <form id="form_excel" name="form_excel" action="/admin/semesterType/DoExcel" method="post"
               enctype="multipart/form-data">
             <input type="file" id="file_excel" name="file_excel"/>
             <input type="submit"/>

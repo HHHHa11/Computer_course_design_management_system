@@ -1,6 +1,7 @@
 package com.design.service;
 
 import com.design.entity.SemesterType;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -13,5 +14,6 @@ public interface SemesterTypeService {
     void insertSemesterType(SemesterType semesterType);
     void updateSemesterType(SemesterType semesterType);
     void deleteSemesterType(int id);
+    public String readExcelFile(MultipartFile file);
 
 }

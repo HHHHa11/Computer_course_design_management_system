@@ -2,7 +2,6 @@ package com.design.controller;
 
 import com.design.pojo.MyResult;
 import com.design.entity.SemesterType;
-import com.design.service.HelpThreeDoExcelService;
 import com.design.service.SemesterTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -65,6 +64,26 @@ public class SemesterManageController {
             semesterTypeService.deleteSemesterType(id);
         }
         return "success";
+    }
+
+    //添加学生的方法  excel 相关的操作   能够将数据插入到数据库
+
+    //@ResponseBody
+    @RequestMapping(value = "/DoExcel", method = {RequestMethod.POST})
+    public ModelAndView DoExcel(@RequestParam(value = "file_excel") MultipartFile file, HttpServletRequest request) {
+        ModelAndView mv = new ModelAndView();
+        String readResult = null;
+        try {
+            readResult = semesterTypeService.readExcelFile(file);
+            System.out.println("canshu :" + readResult);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("upload falure");
+        }
+        System.out.println("插入结果=" + readResult);
+        mv.addObject("readResult", readResult);
+        mv.setViewName("admin/semestermanage");
+        return mv;
     }
 
 
