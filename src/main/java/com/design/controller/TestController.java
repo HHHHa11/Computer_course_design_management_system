@@ -33,7 +33,7 @@ public class TestController {
         }
         System.out.println("插入结果=" + readResult);
         mv.addObject("readResult", readResult);
-        mv.setViewName("admin/admin");
+        mv.setViewName("admin/semestermanage");
         return mv;
     }
 }

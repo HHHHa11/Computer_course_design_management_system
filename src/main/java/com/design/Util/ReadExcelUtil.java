@@ -118,7 +118,7 @@ public class ReadExcelUtil {
             if (row == null) {
                 continue;
             }
-            SemesterType student = new SemesterType();
+            SemesterType semesterType = new SemesterType();
             // 循环Excel的列
             for (int c = 0; c < this.totalCells; c++) {
                 Cell cell = row.getCell(c);
@@ -150,15 +150,15 @@ public class ReadExcelUtil {
                         if (cell.getCellType() == XSSFCell.CELL_TYPE_NUMERIC) {
                             String semester = String.valueOf(cell.getNumericCellValue());
 //                            String x = appUserId.substring(0, appUserId.length() - 2 > 0 ? appUserId.length() - 2 : 1);//性别
-                            student.setSemester(semester);
+                            semesterType.setSemester(semester);
                         }else{
-                            student.setSemester(cell.getStringCellValue());
+                            semesterType.setSemester(cell.getStringCellValue());
                         }
                     }
                 }
             }
             // 添加到list
-            semList.add(student);
+            semList.add(semesterType);
         }
         return semList;
     }
