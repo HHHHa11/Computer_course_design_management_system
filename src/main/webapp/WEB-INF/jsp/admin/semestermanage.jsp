@@ -91,6 +91,10 @@
             $("#dlg").dialog("close");
             resetValue();
         }
+        function batchaddSemesterType() {
+            $("#dlg1").dialog("open").dialog("setTitle", "批量添加学期类别信息");
+
+        }
     </script>
 </head>
 <body style="margin: 1px">
@@ -111,6 +115,7 @@
         <a href="javascript:openSemesterTypeModifyDialog()" class="easyui-linkbutton" iconCls="icon-edit"
            plain="true">修改</a>
         <a href="javascript:deleteSemesterType()" class="easyui-linkbutton" iconCls="icon-remove" plain="true">删除</a>
+        <a href="javascript:batchaddSemesterType()" class="easyui-linkbutton"iconCls="icon-add" plain="true">批量增加</a>
     </div>
 </div>
 
@@ -129,16 +134,24 @@
         </table>
     </form>
 
+
+
+</div>
+
+<div id="dlg1" class="easyui-dialog" style="width:500px;height:180px;padding: 10px 20px"
+     closed="true" >
     <div>
         <form id="form_excel" name="form_excel" action="/admin/semesterType/DoExcel" method="post"
               enctype="multipart/form-data">
-            <input type="file" id="file_excel" name="file_excel"/>
+            请选择相应的Excel文件<br>
+            <input type="file" id="file_excel" name="file_excel"/><br>
             <input type="submit"/>
         </form>
 
     </div>
 
 </div>
+
 
 <div id="dlg-buttons">
     <a href="javascript:saveSemesterType()" class="easyui-linkbutton" iconCls="icon-ok">保存</a>

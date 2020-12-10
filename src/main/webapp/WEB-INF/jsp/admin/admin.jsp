@@ -131,7 +131,9 @@
                                         <span data-feather="file"></span>
                                         学期管理
                                     </button><br>
-                                    <button type="button" class="btn btn-light button-style-for-light">学生信息管理</button><br>
+                                    <button type="button" class="btn btn-light button-style-for-light" onclick="opentable('usermanage')">
+                                        用户信息管理
+                                    </button><br>
                                     <button type="button" class="btn btn-light button-style-for-light">Secondary</button><br>
                                     <button type="button" class="btn btn-light button-style-for-light">Secondary</button><br>
                                     <button type="button" class="btn btn-light button-style-for-light">Secondary</button>
