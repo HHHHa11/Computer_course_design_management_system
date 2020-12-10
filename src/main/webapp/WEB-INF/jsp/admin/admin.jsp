@@ -117,7 +117,7 @@
                             <h2 class="mb-0">
                                 <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
                                         data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Collapsible Group Item #1
+                                    系统管理
                                 </button>
                             </h2>
                         </div>
@@ -136,7 +136,7 @@
                                     </button><br>
                                     <button type="button" class="btn btn-light button-style-for-light" onclick="opentable('classmanage')">班级信息管理</button><br>
                                     <button type="button" class="btn btn-light button-style-for-light" onclick="opentable('coursemanage')">课程信息管理</button><br>
-                                    <button type="button" class="btn btn-light button-style-for-light">Secondary</button>
+                                    <button type="button" class="btn btn-light button-style-for-light" onclick="opentable()">Secondary</button>
                                 </div>
                             </div>
                         </div>
@@ -222,7 +222,6 @@
 
         </main>
     </div>
-    <div
 </div>
 <script src="/static/js/jquery-3.5.1.slim.min.js"></script>
 <script>window.jQuery || document.write('<script src="/static/bootstrap-4.5.3-examples/assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
