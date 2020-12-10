@@ -134,8 +134,8 @@
                                     <button type="button" class="btn btn-light button-style-for-light" onclick="opentable('usermanage')">
                                         用户信息管理
                                     </button><br>
-                                    <button type="button" class="btn btn-light button-style-for-light">Secondary</button><br>
-                                    <button type="button" class="btn btn-light button-style-for-light">Secondary</button><br>
+                                    <button type="button" class="btn btn-light button-style-for-light" onclick="opentable('classmanage')">班级信息管理</button><br>
+                                    <button type="button" class="btn btn-light button-style-for-light" onclick="opentable('coursemanage')">课程信息管理</button><br>
                                     <button type="button" class="btn btn-light button-style-for-light">Secondary</button>
                                 </div>
                             </div>

@@ -29,10 +29,10 @@ public class Test {
     public void UserData(User user){
         System.out.println("id" + ":" +user.getId());
         System.out.println("name" + ":" + user.getName());
-        System.out.println("student_number" + ":" + user.getStudentNumber());
+//        System.out.println("student_number" + ":" + user.getStudentNumber());
         System.out.println("classes" + ":" + user.getClasses());
-        System.out.println("gender" + ":" + user.getGender());
-        System.out.println("email" + ":" + user.getEmail());
+//        System.out.println("gender" + ":" + user.getGender());
+//        System.out.println("email" + ":" + user.getEmail());
         System.out.println("username" + ":" + user.getUsername());
         System.out.println("password" + ":" + user.getPassword());
         System.out.println("identity" + ":" + user.getIdentity());

@@ -27,11 +27,15 @@ public class SemesterManageController {
     public MyResult getSemesterTypeListByPage(){
         MyResult result = new MyResult();
         List<SemesterType> list = semesterTypeService.getSemesterTypeList();
+        System.out.println("1");
 //        System.out.println(list);
 //        System.out.println(list.get(0).getId());
-//        System.out.println(list.get(1).getSemester());
+        System.out.println(list.get(1).getSemester());
+        System.out.println("2");
         result.setRows(list);
+        System.out.println("3");
         result.setTotal(semesterTypeService.getSemesterTypeCount());
+        System.out.println("4");
         return result;
     }
 

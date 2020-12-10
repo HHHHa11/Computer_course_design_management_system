@@ -14,7 +14,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import static jdk.internal.org.objectweb.asm.Type.getType;
+//import jdk.internal.org.objectweb.asm.Type.getType;
 
 @Controller
 public class LoginAndPageController {
@@ -122,7 +122,7 @@ public class LoginAndPageController {
         String identity = session.getAttribute("Identity").toString();
         System.out.println("9");
         System.out.println(identity);
-        System.out.println(getType(identity));
+        //System.out.println(getType(identity));
         if (identity.equals("admin")) {
             System.out.println("执行了第一个if");
             return "redirect:/admin";
@@ -151,6 +151,16 @@ public class LoginAndPageController {
     @RequestMapping("/usermanage")
     public String usermanage() {
         return "admin/usermanage";
+    }
+
+    @RequestMapping("/classmanage")
+    public String classmanage() {
+        return "admin/classmanage";
+    }
+
+    @RequestMapping("/coursemanage")
+    public String coursemanage() {
+        return "admin/coursemanage";
     }
 
 

@@ -16,10 +16,10 @@
     <script type="text/javascript"
             src="/static/static-easyui/plugin/jeasyui/locale/easyui-lang-zh_CN.js"></script>
 
+
     <script type="text/javascript">
 
         var url;
-
         function deleteSemesterType() {
             var selectedRows = $("#dg").datagrid("getSelections");
             if (selectedRows.length == 0) {
