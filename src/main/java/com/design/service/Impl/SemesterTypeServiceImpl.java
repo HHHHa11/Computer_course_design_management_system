@@ -1,6 +1,6 @@
 package com.design.service.Impl;
 
-import com.design.Util.ReadExcelUtil;
+import com.design.Util.ReadExcelUtilforSemesterType;
 import com.design.entity.SemesterType;
 import com.design.entity.SemesterTypeExample;
 import com.design.dao.SemesterTypeMapper;
@@ -62,13 +62,13 @@ public class SemesterTypeServiceImpl implements SemesterTypeService {
     @Override
     public String readExcelFile(MultipartFile file) {
         //创建处理EXCEL的类
-        ReadExcelUtil readExcel = new ReadExcelUtil();
+        ReadExcelUtilforSemesterType readExcelforSemesterType = new ReadExcelUtilforSemesterType();
         //解析excel，获取上传的事件单
         List<SemesterType> semList = null;
         int insertResult = 0;
         String insertMsg = "";
         try {
-            semList = readExcel.getExcelInfo(file);
+            semList = readExcelforSemesterType.getExcelInfo(file);
             //至此已经将excel中的数据转换到list里面了,接下来就可以操作list,可以进行保存到数据库,或者其他操作,
             //和你具体业务有关,这里不做具体的示范
             //数据库插入

@@ -17,7 +17,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.web.multipart.MultipartFile;
 //import com.qcbylearn.entitys.Student;
 
-public class ReadExcelUtil {
+public class ReadExcelUtilforSemesterType {
     //总行数
     private int totalRows = 0;
     //总条数
@@ -26,7 +26,7 @@ public class ReadExcelUtil {
     private String errorMsg;
 
     //构造方法
-    public ReadExcelUtil() {
+    public ReadExcelUtilforSemesterType() {
     }
 
     //获取总行数
