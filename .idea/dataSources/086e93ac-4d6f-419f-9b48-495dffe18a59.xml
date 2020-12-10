@@ -853,58 +853,67 @@ SELECT|sys.sys_config:null
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="262" parent="243" name="PRIMARY">
+    <index id="262" parent="243" name="semester">
+      <ColNames>semester</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="263" parent="243" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="263" parent="244" name="id">
+    <key id="264" parent="243" name="semester">
+      <ColNames>semester</ColNames>
+      <UnderlyingIndexName>semester</UnderlyingIndexName>
+    </key>
+    <column id="265" parent="244" name="id">
       <Position>1</Position>
       <DataType>int(32) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="264" parent="244" name="name">
+    <column id="266" parent="244" name="name">
       <Position>2</Position>
       <Comment>个人姓名</Comment>
       <DataType>varchar(25)|0s</DataType>
     </column>
-    <column id="265" parent="244" name="student_number">
+    <column id="267" parent="244" name="student_number">
       <Position>3</Position>
       <Comment>学号</Comment>
       <DataType>varchar(32)|0s</DataType>
     </column>
-    <column id="266" parent="244" name="classes">
+    <column id="268" parent="244" name="classes">
       <Position>4</Position>
       <Comment>班级，示例：计算机17-1</Comment>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="267" parent="244" name="gender">
+    <column id="269" parent="244" name="gender">
       <Position>5</Position>
       <Comment>性别</Comment>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="268" parent="244" name="email">
+    <column id="270" parent="244" name="email">
       <Position>6</Position>
       <Comment>邮箱</Comment>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="269" parent="244" name="username">
+    <column id="271" parent="244" name="username">
       <Position>7</Position>
       <Comment>用户名</Comment>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="270" parent="244" name="password">
+    <column id="272" parent="244" name="password">
       <Position>8</Position>
       <Comment>密码</Comment>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="271" parent="244" name="identity">
+    <column id="273" parent="244" name="identity">
       <Position>9</Position>
       <Comment>身份，示例：teacher,student,admin</Comment>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <key id="272" parent="244" name="PRIMARY">
+    <key id="274" parent="244" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
