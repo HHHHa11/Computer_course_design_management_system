@@ -1,6 +1,7 @@
 package com.design.service;
 
 
+import com.design.entity.Topic;
 import com.design.entity.User;
 import com.design.entity.User;
 import org.springframework.web.multipart.MultipartFile;
@@ -24,4 +25,5 @@ public interface UserService {
     void deleteUser(int id);
 
 //    public String readExcelFile(MultipartFile file);
+    User getUserById(Integer id);
 }

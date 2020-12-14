@@ -4,8 +4,7 @@ package com.design.service.Impl;
 //import com.design.Util.ReadExcelUtil;
 import com.design.dao.UserMapper;
 import com.design.dao.UserMapper;
-import com.design.entity.User;
-import com.design.entity.UserExample;
+import com.design.entity.*;
 import com.design.entity.User;
 import com.design.entity.UserExample;
 import com.design.service.UserService;
@@ -114,4 +113,8 @@ public class UserServiceImpl implements UserService {
 //        }
 //        return insertMsg;
 //    }
+       @Override
+       public User getUserById(Integer id) {
+          return userMapper.selectByPrimaryKey(id);
+}
 }

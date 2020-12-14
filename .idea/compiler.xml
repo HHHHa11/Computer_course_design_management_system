@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="Computer_course_design_management_system" />
         <module name="Computer_course_design_management_system - 副本 (2) - 副本" />
       </profile>
     </annotationProcessing>

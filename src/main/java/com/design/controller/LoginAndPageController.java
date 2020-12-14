@@ -2,12 +2,19 @@ package com.design.controller;
 
 import com.Test.Test;
 import com.design.Util.CryptographyUtil;
+import com.design.entity.CourseType;
 import com.design.entity.User;
+import com.design.service.CourseTypeService;
+import com.design.service.SemesterTypeService;
+import com.design.service.TopicService;
 import com.design.service.UserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
@@ -20,6 +27,15 @@ import javax.servlet.http.HttpSession;
 public class LoginAndPageController {
     @Resource
     private UserService userService;
+
+    @Autowired
+    private CourseTypeService courseTypeService;
+
+    @Autowired
+    private SemesterTypeService semesterTypeService;
+
+    @Autowired
+    private TopicService topicService;
 
     private final String SALT = "blog";
     @RequestMapping("/admin")
@@ -162,6 +178,30 @@ public class LoginAndPageController {
     public String coursemanage() {
         return "admin/coursemanage";
     }
+
+    @RequestMapping("/releasetopic")
+    public String releasetopic(Model model) {
+        model.addAttribute("courseTypeList", courseTypeService.getCourseTypeList());
+        model.addAttribute("semesterTypeList",semesterTypeService.getSemesterTypeList());
+
+        return "admin/releasetopic";
+    }
+
+    @RequestMapping("/topicmanage")
+    public String topicmanage() {
+        return "admin/topicmanage";
+    }
+
+//    @RequestMapping("/topic/{id}")
+//    public String showArticle(@PathVariable int id, Model model) {
+//        if (topicService.getTopicById(id)== null) {
+//            return "error";
+//        }
+//        model.addAttribute("topic", topicService.getTopicById(id));
+//        return "topic_content";
+//    }
+    @RequestMapping("/error")
+    public String error(){return "error";}
 
 
 
