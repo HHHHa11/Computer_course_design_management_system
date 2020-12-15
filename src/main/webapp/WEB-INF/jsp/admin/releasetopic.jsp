@@ -49,8 +49,8 @@
 
         function submitData() {
             var topicTitle = $("#topicTitle").val();
-            var topicCourseId = $("#topicCourseId").combobox("getValue");
-            var topicSemesterId = $("#topicSemesterId").combobox("getValue");
+            var topicCourse = $("#topicCourse").combobox("getText");
+            var topicSemester = $("#topicSemester").combobox("getText");
             var topicType = $("#topicType").combobox("getText");
             var topicSource = $("#topicSource").combobox("getText");
             var topicIntegratedCurriculum = $("#topicIntegratedCurriculum").val();
@@ -62,9 +62,9 @@
 
             if (topicTitle == null || topicTitle == '') {
                 alert("请输入题目标题！");
-            } else if (topicCourseId == null || topicCourseId == '') {
+            } else if (topicCourse == null || topicCourse == '') {
                 alert("请选择课程类别！");
-            } else if (topicSemesterId == null || topicSemesterId == '') {
+            } else if (topicSemester == null || topicSemester == '') {
                 alert("请选择学期类别！");
             } else if (topicType == null || topicType == '') {
                 alert("请选择题目类别！");
@@ -80,8 +80,8 @@
                 alert("请输入主要难点！");
             }
             else {
-                $("#topicCourseId").val(topicCourseId);
-                $("#topicSemesterId").val(topicSemesterId);
+                $("#topicCourse").val(topicCourse);
+                $("#topicSemester").val(topicSemester);
                 $("#topicType").val(topicType);
                 $("#topicSource").val(topicSource);
                 //多写了一个隐藏的框进行数据的提交
@@ -108,8 +108,8 @@
         function resetValue() {
             //将所有内容置空
             $("#topicTitle").val("");
-            $("#topicCourseId").combobox("setValue", "");
-            $("#topicSemesterId").combobox("setValue", "");
+            $("#topicCourse").combobox("setValue", "");
+            $("#topicSemester").combobox("setValue", "");
             $("#topicType").combobox("setValue", "");
             $("#topicSource").combobox("setValue", "");
             $("#topicIntegratedCurriculum").val("");
@@ -141,12 +141,12 @@
             <tr>
                 <td>所属课程：</td>
                 <td>
-                    <select class="easyui-combobox" style="width: 154px" id="topicCourseId" name="topicCourseId"
+                    <select class="easyui-combobox" style="width: 154px" id="topicCourse" name="topicCourse"
                             editable="false"
                             panelHeight="auto">
                         <option value="">请选择课程类别...</option>
                         <c:forEach var="courseType" items="${courseTypeList }">
-                            <option value="${courseType.id }">${courseType.courseName}</option>
+                            <option>${courseType.courseName}</option>
                         </c:forEach>
                     </select>
                 </td>
@@ -154,12 +154,12 @@
             <tr>
                 <td>所属学期：</td>
                 <td>
-                    <select class="easyui-combobox" style="width: 154px" id="topicSemesterId" name="topicSemesterId"
+                    <select class="easyui-combobox" style="width: 154px" id="topicSemester" name="topicSemester"
                             editable="false"
                             panelHeight="auto">
                         <option value="">请选择学期...</option>
                         <c:forEach var="semesterType" items="${semesterTypeList }">
-                            <option value="${semesterType.id }">${semesterType.semester}</option>
+                            <option>${semesterType.semester}</option>
                         </c:forEach>
                     </select>
                 </td>

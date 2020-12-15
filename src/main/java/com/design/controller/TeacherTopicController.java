@@ -48,8 +48,16 @@ public class TeacherTopicController {
     @Autowired
     private UserService userService;
 
-//    @RequestMapping("/list")
-//    @ResponseBody
+    @RequestMapping("/list")
+    @ResponseBody
+    public MyResult getTopicList(){
+        MyResult result = new MyResult();
+        List<Topic> list = topicService.getTopicList();
+        System.out.println(list.get(4).getTopicType());
+        result.setRows(list);
+        result.setTotal(topicService.getTopicCount());
+        return result;
+    }
 //    public <list> MyResult getBlogList(@RequestParam(value="title", required=false) String title) {
 //        MyResult result = new MyResult();
 //        //请求参数中page从1开始
@@ -109,11 +117,11 @@ public class TeacherTopicController {
     public String insertTopic(Topic topic){
 //        从登录的session中得到老师的信息来确定选题所属的院系
         User user = (User) SecurityUtils.getSubject().getSession().getAttribute("user");
-        Integer teacher_id= user.getId();
+        String teacher_Name= user.getName();
 //        老师发布题目时一般认为题目为被任何人选取
         String  topic_status = "unchosen";
 //        将topic还没有的内容填满
-        topic.setTeacherId(teacher_id);
+        topic.setTeacherName(teacher_Name);
         topic.setTopicStatus(topic_status);
 
 //

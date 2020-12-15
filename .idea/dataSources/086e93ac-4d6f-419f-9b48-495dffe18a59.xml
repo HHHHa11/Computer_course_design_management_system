@@ -923,18 +923,18 @@ SELECT|sys.sys_config:null
     </key>
     <column id="279" parent="247" name="id">
       <Position>1</Position>
-      <DataType>int(32) unsigned zerofill|0s</DataType>
+      <DataType>int(5) unsigned zerofill|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="280" parent="247" name="topic_title_id">
+    <column id="280" parent="247" name="topic_title">
       <Position>2</Position>
       <Comment>整合课程</Comment>
-      <DataType>int(32)|0s</DataType>
+      <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="281" parent="247" name="topic_course_id">
+    <column id="281" parent="247" name="topic_course">
       <Position>3</Position>
-      <DataType>int(32)|0s</DataType>
+      <DataType>varchar(255)|0s</DataType>
     </column>
     <column id="282" parent="247" name="topic_semester">
       <Position>4</Position>
@@ -968,9 +968,9 @@ SELECT|sys.sys_config:null
       <Comment>主要难点</Comment>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="289" parent="247" name="teacher_id">
+    <column id="289" parent="247" name="teacher_name">
       <Position>11</Position>
-      <DataType>int(32)|0s</DataType>
+      <DataType>varchar(255)|0s</DataType>
     </column>
     <column id="290" parent="247" name="topic_status">
       <Position>12</Position>

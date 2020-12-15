@@ -106,11 +106,11 @@
     <tr>
         <th field="cb" checkbox="true" align="center"></th>
         <th field="id" width="20" align="center">编号</th>
-        <th field="className" width="100" align="center" formatter="formatTitle">题目标题</th>
-        <th field="className" width="100" align="center">题目标题</th>
-        <th field="className" width="100" align="center">题目标题</th>
-        <th field="className" width="100" align="center">题目标题</th>
-        <th field="className" width="100" align="center">题目标题</th>
+        <th field="topicTitle" width="100" align="center" formatter="formatTitle">题目标题</th>
+        <th field="topicCourse" width="100" align="center">所属课程</th>
+        <th field="topicSemester" width="100" align="center">所属学期</th>
+        <th field="topicType" width="100" align="center">题目类别</th>
+        <th field="topicSource" width="100" align="center">题目来源</th>
     </tr>
     </thead>
 </table>
