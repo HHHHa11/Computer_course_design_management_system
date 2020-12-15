@@ -93,8 +93,8 @@ public class TopicServiceImpl implements TopicService {
 //        return insertMsg;
 //    }
 //    @Override
-//    public Topic getTopicById(Integer id){
-//        return topicMapper.selectByPrimaryKey(id);
-//    }
+    public Topic getTopicById(Integer id){
+        return topicMapper.selectByPrimaryKey(id);
+    }
 
 }

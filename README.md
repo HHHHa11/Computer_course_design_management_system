@@ -102,3 +102,6 @@
 #这次的版本主要添加了老师发布题目的功能
 #待解决问题：没有按id获取course、semester和teachername
 #关于easyui中用.combobox("getText")无法获取combobox的内容
+
+#v5.0.6
+#这次的版本主要更新了老师可以查看

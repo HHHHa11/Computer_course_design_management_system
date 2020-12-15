@@ -20,6 +20,7 @@
     <script type="text/javascript">
 
         var url;
+
         function deleteClassType() {
             var selectedRows = $("#dg").datagrid("getSelections");
             if (selectedRows.length == 0) {
@@ -42,6 +43,11 @@
                     });
                 }
             });
+        }
+
+        function openClassTypeAddDialog() {
+            $("#dlg").dialog("open").dialog("setTitle", "添加班级信息信息");
+            url = "/admin/classType/insert";
         }
 
         function openClassTypeModifyDialog() {
@@ -86,20 +92,19 @@
             $("#dlg").dialog("close");
             resetValue();
         }
+
         function batchaddClassType() {
             $("#dlg1").dialog("open").dialog("setTitle", "批量添加班级信息信息");
 
         }
 
-        function formatTitle() {
-            var selectedRows = $("#dg").datagrid("getSelections");
-            var row = selectedRows[0];
-            window.parent.openTab('topic/'+row.id);
+        function formatTitle(val, row) {
+            return "<a target='_self' style='text-decoration:none' href='/article/" + row.id + "'>" + val + "</a>"
         }
     </script>
 </head>
 <body style="margin: 1px">
-<table id="dg" title="题目信息管理" class="easyui-datagrid"
+<table id="dg" title="班级信息管理" class="easyui-datagrid"
        fitColumns="true" pagination="true" rownumbers="true"
        url="/teacher/topic/list" fit="true" toolbar="#tb">
     <thead>
@@ -116,10 +121,11 @@
 </table>
 <div id="tb">
     <div>
+        <a href="javascript:openClassTypeAddDialog()" class="easyui-linkbutton" iconCls="icon-add" plain="true">添加</a>
         <a href="javascript:openClassTypeModifyDialog()" class="easyui-linkbutton" iconCls="icon-edit"
            plain="true">修改</a>
         <a href="javascript:deleteClassType()" class="easyui-linkbutton" iconCls="icon-remove" plain="true">删除</a>
-        <a href="javascript:batchaddClassType()" class="easyui-linkbutton"iconCls="icon-add" plain="true">批量增加</a>
+        <a href="javascript:batchaddClassType()" class="easyui-linkbutton" iconCls="icon-add" plain="true">批量增加</a>
     </div>
 </div>
 
@@ -139,11 +145,10 @@
     </form>
 
 
-
 </div>
 
 <div id="dlg1" class="easyui-dialog" style="width:500px;height:180px;padding: 10px 20px"
-     closed="true" >
+     closed="true">
     <div>
         <form id="form_excel" name="form_excel" action="/admin/classType/DoExcel" method="post"
               enctype="multipart/form-data">

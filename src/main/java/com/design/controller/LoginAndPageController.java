@@ -203,6 +203,16 @@ public class LoginAndPageController {
     @RequestMapping("/error")
     public String error(){return "error";}
 
+    @RequestMapping("/article/{id}")
+    public String showArticle(@PathVariable int id, Model model) {
+        if (topicService.getTopicById(id) == null) {
+            return "error";
+        }
+        model.addAttribute("topic", topicService.getTopicById(id));
+        return "topic_content";
+    }
+
+
 
 
 

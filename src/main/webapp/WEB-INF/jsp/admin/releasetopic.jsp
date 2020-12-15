@@ -85,7 +85,7 @@
                 $("#topicType").val(topicType);
                 $("#topicSource").val(topicSource);
                 //多写了一个隐藏的框进行数据的提交
-                $("#topicContent").val(summary);
+                $("#topicContent").val(content);
                 // $("#typeId").val(typeId);
                 $("#topicForm").ajaxSubmit({
                     type: "post",
