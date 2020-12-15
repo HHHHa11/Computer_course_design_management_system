@@ -9,8 +9,31 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" type="text/css"
+          href="/static/static-easyui/plugin/jeasyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css"
+          href="/static/static-easyui/plugin/jeasyui/themes/icon.css">
+    <link rel="stylesheet" type="text/css"
+          href="/static/static-easyui/css/idea.css">
+    <link rel="stylesheet" type="text/css"
+          href="/static/static-easyui/plugin/mdeditor/css/editormd.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="/static/static-easyui/css/customAdmin.css">
+
+
+    <script type="text/javascript"
+            src="/static/static-easyui/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript"
+            src="/static/static-easyui/js/jquery.form.min.js"></script>
+    <script type="text/javascript"
+            src="/static/static-easyui/plugin/jeasyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript"
+            src="/static/static-easyui/plugin/jeasyui/locale/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript"
+            src="/static/static-easyui/plugin/mdeditor/editormd.min.js"></script>
 </head>
 <body>
+<a href="javascript:history.back(-1)" class="easyui-linkbutton">返回上一页</a>
 <h1>题目标题：${topic.topicTitle}</h1>
 <h1>所属课程：${topic.topicCourse}</h1>
 <h1>所属学期：${topic.topicSemester}</h1>

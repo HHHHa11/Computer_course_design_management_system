@@ -21,7 +21,7 @@
 
         var url;
 
-        function deleteClassType() {
+        function deleteTopic() {
             var selectedRows = $("#dg").datagrid("getSelections");
             if (selectedRows.length == 0) {
                 $.messager.alert("系统提示", "请选择要删除的数据！");
@@ -34,7 +34,7 @@
             var ids = strIds.join(",");
             $.messager.confirm("系统提示", "您确定要删除这<font color=red>" + selectedRows.length + "</font>条数据吗？", function (r) {
                 if (r) {
-                    $.post("/admin/classType/delete/" + ids, {}, function (result) {
+                    $.post("/teacher/topic/delete/" + ids, {}, function (result) {
                         if (result == "success") {
                             $("#dg").datagrid("reload");
                         } else {
@@ -45,55 +45,48 @@
             });
         }
 
-        function openClassTypeAddDialog() {
-            $("#dlg").dialog("open").dialog("setTitle", "添加班级信息信息");
-            url = "/admin/classType/insert";
-        }
-
-        function openClassTypeModifyDialog() {
+        function openTopicModifyDialog() {
             var selectedRows = $("#dg").datagrid("getSelections");
             if (selectedRows.length != 1) {
                 $.messager.alert("系统提示", "请选择一条要编辑的数据！");
                 return;
             }
             var row = selectedRows[0];
-            $("#dlg").dialog("open").dialog("setTitle", "编辑班级信息信息");
-            $("#fm").form("load", row);
-            url = "/admin/classType/update/" + row.id;
+            window.parent.opentable('teacher/topic/modifyTopic/'+row.id)
         }
 
-        function saveClassType() {
-            $("#fm").form("submit", {
-                url: url,
-                onSubmit: function () {
-                    return $(this).form("validate");
-                },
-                success: function (result) {
-                    // var result = eval('(' + result + ')');
-                    if (result == "success") {
-                        $.messager.alert("系统提示", "保存成功！");
-                        resetValue();
-                        $("#dlg").dialog("close");
-                        $("#dg").datagrid("reload");
-                    } else {
-                        $.messager.alert("系统提示", "保存失败！");
-                        return;
-                    }
-                }
-            });
-        }
+        // function saveTopic() {
+        //     $("#fm").form("submit", {
+        //         url: url,
+        //         onSubmit: function () {
+        //             return $(this).form("validate");
+        //         },
+        //         success: function (result) {
+        //             // var result = eval('(' + result + ')');
+        //             if (result == "success") {
+        //                 $.messager.alert("系统提示", "保存成功！");
+        //                 resetValue();
+        //                 $("#dlg").dialog("close");
+        //                 $("#dg").datagrid("reload");
+        //             } else {
+        //                 $.messager.alert("系统提示", "保存失败！");
+        //                 return;
+        //             }
+        //         }
+        //     });
+        // }
 
         function resetValue() {
             $("#typeName").val("");
             $("#orderNo").val("");
         }
 
-        function closeClassTypeDialog() {
-            $("#dlg").dialog("close");
-            resetValue();
-        }
+        // function closeTopicDialog() {
+        //     $("#dlg").dialog("close");
+        //     resetValue();
+        // }
 
-        function batchaddClassType() {
+        function batchaddTopic() {
             $("#dlg1").dialog("open").dialog("setTitle", "批量添加班级信息信息");
 
         }
@@ -121,11 +114,10 @@
 </table>
 <div id="tb">
     <div>
-        <a href="javascript:openClassTypeAddDialog()" class="easyui-linkbutton" iconCls="icon-add" plain="true">添加</a>
-        <a href="javascript:openClassTypeModifyDialog()" class="easyui-linkbutton" iconCls="icon-edit"
+        <a href="javascript:openTopicModifyDialog()" class="easyui-linkbutton" iconCls="icon-edit"
            plain="true">修改</a>
-        <a href="javascript:deleteClassType()" class="easyui-linkbutton" iconCls="icon-remove" plain="true">删除</a>
-        <a href="javascript:batchaddClassType()" class="easyui-linkbutton" iconCls="icon-add" plain="true">批量增加</a>
+        <a href="javascript:deleteTopic()" class="easyui-linkbutton" iconCls="icon-remove" plain="true">删除</a>
+        <a href="javascript:batchaddTopic()" class="easyui-linkbutton" iconCls="icon-add" plain="true">批量增加</a>
     </div>
 </div>
 
@@ -150,7 +142,7 @@
 <div id="dlg1" class="easyui-dialog" style="width:500px;height:180px;padding: 10px 20px"
      closed="true">
     <div>
-        <form id="form_excel" name="form_excel" action="/admin/classType/DoExcel" method="post"
+        <form id="form_excel" name="form_excel" action="/teacher/topic/DoExcel" method="post"
               enctype="multipart/form-data">
             请选择相应的Excel文件<br>
             <input type="file" id="file_excel" name="file_excel"/><br>
@@ -162,9 +154,9 @@
 </div>
 
 
-<div id="dlg-buttons">
-    <a href="javascript:saveClassType()" class="easyui-linkbutton" iconCls="icon-ok">保存</a>
-    <a href="javascript:closeClassTypeDialog()" class="easyui-linkbutton" iconCls="icon-cancel">关闭</a>
-</div>
+<%--<div id="dlg-buttons">--%>
+<%--    <a href="javascript:saveTopic()" class="easyui-linkbutton" iconCls="icon-ok">保存</a>--%>
+<%--    <a href="javascript:closeTopicDialog()" class="easyui-linkbutton" iconCls="icon-cancel">关闭</a>--%>
+<%--</div>--%>
 </body>
 </html>

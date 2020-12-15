@@ -3,10 +3,13 @@ package com.design.controller;
 import com.design.entity.Topic;
 import com.design.entity.User;
 import com.design.pojo.MyResult;
+import com.design.service.CourseTypeService;
+import com.design.service.SemesterTypeService;
 import com.design.service.TopicService;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -21,6 +24,11 @@ public class TeacherTopicController {
 
     @Autowired
     private TopicService topicService;
+    @Autowired
+    private CourseTypeService courseTypeService;
+
+    @Autowired
+    private SemesterTypeService semesterTypeService;
 //    @Autowired
 //    private BlogService blogService;
 
@@ -43,6 +51,8 @@ public class TeacherTopicController {
     @RequestMapping("/insert")
     @ResponseBody
     public String insertTopic(Topic topic) {
+
+        System.out.println(topic.getTopicType());
 //        从登录的session中得到老师的信息来确定选题所属的院系
         User user = (User) SecurityUtils.getSubject().getSession().getAttribute("user");
         String teacher_Name = user.getName();
@@ -75,11 +85,21 @@ public class TeacherTopicController {
         topicService.insertTopic(topic);
         return "success";
     }
-    @RequestMapping("/update/{id}")
+    @RequestMapping("/update")
     @ResponseBody
-    public String updateTopic(@PathVariable int id, Topic topic) {
-        topic.setId(id);
-        topicService.updateTopic(topic);
+    public String updateTopic(Topic topic) {
+        System.out.println(topic);
+        Topic topic1 = topicService.getTopicById(topic.getId());
+        topic1.setTopicTitle(topic.getTopicTitle());
+        topic1.setTopicCourse(topic.getTopicCourse());
+        topic1.setTopicSemester(topic.getTopicSemester());
+        topic1.setTopicType(topic.getTopicType());
+        topic1.setTopicSource(topic.getTopicSource());
+        topic1.setTopicIntegratedCurriculum(topic.getTopicIntegratedCurriculum());
+        topic1.setTopicContent(topic.getTopicContent());
+        topic1.setTopicRequirements(topic.getTopicRequirements());
+        topic1.setTopicMainDifficulties(topic.getTopicMainDifficulties());
+        topicService.updateTopic(topic1);
         System.out.println("update:" + new Date().toString() + "  " + topic.getId());
         return "success";
     }
@@ -116,5 +136,14 @@ public class TeacherTopicController {
 //        mv.setViewName("admin/classmanage");
 //        return mv;
 //    }
+
+    @RequestMapping(value = "/modifyTopic/{id}",method = RequestMethod.GET)
+    public String showModifyBlog(@PathVariable Integer id, Model model) {
+        model.addAttribute("courseTypeList", courseTypeService.getCourseTypeList());
+        model.addAttribute("semesterTypeList", semesterTypeService.getSemesterTypeList());
+        model.addAttribute("topic", topicService.getTopicById(id));
+        model.addAttribute("topicId",id);
+        return "admin/modifyBlog";
+    }
 
 }
