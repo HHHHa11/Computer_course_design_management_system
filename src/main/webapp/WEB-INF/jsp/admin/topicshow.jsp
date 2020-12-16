@@ -21,39 +21,39 @@
 
         var url;
 
-        function deleteTopic() {
-            var selectedRows = $("#dg").datagrid("getSelections");
-            if (selectedRows.length == 0) {
-                $.messager.alert("系统提示", "请选择要删除的数据！");
-                return;
-            }
-            var strIds = [];
-            for (var i = 0; i < selectedRows.length; i++) {
-                strIds.push(selectedRows[i].id);
-            }
-            var ids = strIds.join(",");
-            $.messager.confirm("系统提示", "您确定要删除这<font color=red>" + selectedRows.length + "</font>条数据吗？", function (r) {
-                if (r) {
-                    $.post("/teacher/topic/delete/" + ids, {}, function (result) {
-                        if (result == "success") {
-                            $("#dg").datagrid("reload");
-                        } else {
-                            $.messager.alert("系统提示", "数据删除失败！");
-                        }
-                    });
-                }
-            });
-        }
+        // function deleteTopic() {
+        //     var selectedRows = $("#dg").datagrid("getSelections");
+        //     if (selectedRows.length == 0) {
+        //         $.messager.alert("系统提示", "请选择要删除的数据！");
+        //         return;
+        //     }
+        //     var strIds = [];
+        //     for (var i = 0; i < selectedRows.length; i++) {
+        //         strIds.push(selectedRows[i].id);
+        //     }
+        //     var ids = strIds.join(",");
+        //     $.messager.confirm("系统提示", "您确定要删除这<font color=red>" + selectedRows.length + "</font>条数据吗？", function (r) {
+        //         if (r) {
+        //             $.post("/teacher/topic/delete/" + ids, {}, function (result) {
+        //                 if (result == "success") {
+        //                     $("#dg").datagrid("reload");
+        //                 } else {
+        //                     $.messager.alert("系统提示", "数据删除失败！");
+        //                 }
+        //             });
+        //         }
+        //     });
+        // }
 
-        function openTopicModifyDialog() {
-            var selectedRows = $("#dg").datagrid("getSelections");
-            if (selectedRows.length != 1) {
-                $.messager.alert("系统提示", "请选择一条要编辑的数据！");
-                return;
-            }
-            var row = selectedRows[0];
-            window.parent.opentable('teacher/topic/modifyTopic/'+row.id)
-        }
+        // function openTopicModifyDialog() {
+        //     var selectedRows = $("#dg").datagrid("getSelections");
+        //     if (selectedRows.length != 1) {
+        //         $.messager.alert("系统提示", "请选择一条要编辑的数据！");
+        //         return;
+        //     }
+        //     var row = selectedRows[0];
+        //     window.parent.opentable('teacher/topic/modifyTopic/'+row.id)
+        // }
 
         // function saveTopic() {
         //     $("#fm").form("submit", {
@@ -76,23 +76,23 @@
         //     });
         // }
 
-        function resetValue() {
-            $("#typeName").val("");
-            $("#orderNo").val("");
-        }
+        // function resetValue() {
+        //     $("#typeName").val("");
+        //     $("#orderNo").val("");
+        // }
 
         // function closeTopicDialog() {
         //     $("#dlg").dialog("close");
         //     resetValue();
         // }
 
-        function batchaddTopic() {
-            $("#dlg1").dialog("open").dialog("setTitle", "批量添加班级信息信息");
-
-        }
+        // function batchaddTopic() {
+        //     $("#dlg1").dialog("open").dialog("setTitle", "批量添加班级信息信息");
+        //
+        // }
 
         function formatTitle(val, row) {
-            return "<a target='_self' style='text-decoration:none' href='/article/" + row.id + "'>" + val + "</a>"
+            return "<a target='_self' style='text-decoration:none' href='/articlestudent/" + row.id + "'>" + val + "</a>"
         }
     </script>
 </head>
@@ -116,10 +116,10 @@
 </table>
 <div id="tb">
     <div>
-        <a href="javascript:openTopicModifyDialog()" class="easyui-linkbutton" iconCls="icon-edit"
-           plain="true">修改</a>
-        <a href="javascript:deleteTopic()" class="easyui-linkbutton" iconCls="icon-remove" plain="true">删除</a>
-        <a href="javascript:batchaddTopic()" class="easyui-linkbutton" iconCls="icon-add" plain="true">批量增加</a>
+<%--        <a href="javascript:openTopicModifyDialog()" class="easyui-linkbutton" iconCls="icon-edit"--%>
+<%--           plain="true">修改</a>--%>
+<%--        <a href="javascript:deleteTopic()" class="easyui-linkbutton" iconCls="icon-remove" plain="true">删除</a>--%>
+<%--        <a href="javascript:batchaddTopic()" class="easyui-linkbutton" iconCls="icon-add" plain="true">批量增加</a>--%>
     </div>
 </div>
 

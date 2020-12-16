@@ -212,6 +212,20 @@ public class LoginAndPageController {
         return "topic_content";
     }
 
+    @RequestMapping("/topicshow")
+    public String topicshow() {
+        return "admin/topicshow";
+    }
+
+    @RequestMapping("/articlestudent/{ids}")
+    public String showArticlestudent(@PathVariable int ids, Model model) {
+        if (topicService.getTopicById(ids) == null) {
+            return "error";
+        }
+        model.addAttribute("topic", topicService.getTopicById(ids));
+        return "topic_content_forstudent";
+    }
+
 
 
 

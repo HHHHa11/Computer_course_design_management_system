@@ -1023,6 +1023,76 @@ public class TopicExample {
             addCriterion("topic_status not between", value1, value2, "topicStatus");
             return (Criteria) this;
         }
+
+        public Criteria andTopicChosenStudentIsNull() {
+            addCriterion("topic_chosen_student is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicChosenStudentIsNotNull() {
+            addCriterion("topic_chosen_student is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicChosenStudentEqualTo(String value) {
+            addCriterion("topic_chosen_student =", value, "topicChosenStudent");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicChosenStudentNotEqualTo(String value) {
+            addCriterion("topic_chosen_student <>", value, "topicChosenStudent");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicChosenStudentGreaterThan(String value) {
+            addCriterion("topic_chosen_student >", value, "topicChosenStudent");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicChosenStudentGreaterThanOrEqualTo(String value) {
+            addCriterion("topic_chosen_student >=", value, "topicChosenStudent");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicChosenStudentLessThan(String value) {
+            addCriterion("topic_chosen_student <", value, "topicChosenStudent");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicChosenStudentLessThanOrEqualTo(String value) {
+            addCriterion("topic_chosen_student <=", value, "topicChosenStudent");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicChosenStudentLike(String value) {
+            addCriterion("topic_chosen_student like", value, "topicChosenStudent");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicChosenStudentNotLike(String value) {
+            addCriterion("topic_chosen_student not like", value, "topicChosenStudent");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicChosenStudentIn(List<String> values) {
+            addCriterion("topic_chosen_student in", values, "topicChosenStudent");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicChosenStudentNotIn(List<String> values) {
+            addCriterion("topic_chosen_student not in", values, "topicChosenStudent");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicChosenStudentBetween(String value1, String value2) {
+            addCriterion("topic_chosen_student between", value1, value2, "topicChosenStudent");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicChosenStudentNotBetween(String value1, String value2) {
+            addCriterion("topic_chosen_student not between", value1, value2, "topicChosenStudent");
+            return (Criteria) this;
+        }
     }
 
     /**
