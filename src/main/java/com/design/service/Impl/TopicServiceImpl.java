@@ -97,4 +97,9 @@ public class TopicServiceImpl implements TopicService {
         return topicMapper.selectByPrimaryKey(id);
     }
 
+    @Override
+    public List<Topic> getTopicListByname(String name) {
+        return topicMapper.getTopListByname(name);
+    }
+
 }

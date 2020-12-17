@@ -1093,6 +1093,76 @@ public class TopicExample {
             addCriterion("topic_chosen_student not between", value1, value2, "topicChosenStudent");
             return (Criteria) this;
         }
+
+        public Criteria andTopicAuditStatusIsNull() {
+            addCriterion("topic_audit_status is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicAuditStatusIsNotNull() {
+            addCriterion("topic_audit_status is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicAuditStatusEqualTo(String value) {
+            addCriterion("topic_audit_status =", value, "topicAuditStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicAuditStatusNotEqualTo(String value) {
+            addCriterion("topic_audit_status <>", value, "topicAuditStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicAuditStatusGreaterThan(String value) {
+            addCriterion("topic_audit_status >", value, "topicAuditStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicAuditStatusGreaterThanOrEqualTo(String value) {
+            addCriterion("topic_audit_status >=", value, "topicAuditStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicAuditStatusLessThan(String value) {
+            addCriterion("topic_audit_status <", value, "topicAuditStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicAuditStatusLessThanOrEqualTo(String value) {
+            addCriterion("topic_audit_status <=", value, "topicAuditStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicAuditStatusLike(String value) {
+            addCriterion("topic_audit_status like", value, "topicAuditStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicAuditStatusNotLike(String value) {
+            addCriterion("topic_audit_status not like", value, "topicAuditStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicAuditStatusIn(List<String> values) {
+            addCriterion("topic_audit_status in", values, "topicAuditStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicAuditStatusNotIn(List<String> values) {
+            addCriterion("topic_audit_status not in", values, "topicAuditStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicAuditStatusBetween(String value1, String value2) {
+            addCriterion("topic_audit_status between", value1, value2, "topicAuditStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicAuditStatusNotBetween(String value1, String value2) {
+            addCriterion("topic_audit_status not between", value1, value2, "topicAuditStatus");
+            return (Criteria) this;
+        }
     }
 
     /**

@@ -93,4 +93,6 @@ public interface TopicMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(Topic record);
+
+    List<Topic> getTopListByname(String name);
 }

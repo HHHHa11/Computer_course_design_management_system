@@ -16,5 +16,6 @@ public interface TopicService {
     void deleteTopic(int id);
 //    public String readExcelFile(MultipartFile file);
     Topic getTopicById(Integer id);
+    List<Topic> getTopicListByname(String name);
 
 }

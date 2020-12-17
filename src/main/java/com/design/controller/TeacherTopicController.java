@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.awt.*;
 import java.util.Date;
 import java.util.List;
 
@@ -31,6 +32,24 @@ public class TeacherTopicController {
     private SemesterTypeService semesterTypeService;
 //    @Autowired
 //    private BlogService blogService;
+     @RequestMapping("/list")
+     @ResponseBody
+     public MyResult getTopicListByPage() {
+        MyResult result = new MyResult();
+        User user = (User) SecurityUtils.getSubject().getSession().getAttribute("user");
+        String name = user.getName();
+        System.out.println(name);
+//        老师只能看属于自己的题目
+        List<Topic> list = topicService.getTopicListByname(name);
+        //        System.out.println(list);
+        //        System.out.println(list.get(0).getId());
+        //        System.out.println(list.get(1).getClass());
+         result.setRows(list);
+        //        System.out.println("111111111111111111111111111111111111111111");
+        //        System.out.println(list.get(1).getClassName());
+        result.setTotal(topicService.getTopicCount());
+        return result;
+}
 
 
 
@@ -45,7 +64,9 @@ public class TeacherTopicController {
         String teacher_Name = user.getName();
 //        老师发布题目时一般认为题目为被任何人选取
         String topic_status = "unchosen";
+        String topic_Audit_Status = "unAudit";
 //        将topic还没有的内容填满
+        topic.setTopicAuditStatus(topic_Audit_Status);
         topic.setTeacherName(teacher_Name);
         topic.setTopicStatus(topic_status);
 
