@@ -2,6 +2,7 @@ package com.design.controller;
 
 import com.design.entity.Topic;
 import com.design.entity.User;
+import com.design.pojo.MyResult;
 import com.design.service.TopicService;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 @Controller
 @RequestMapping(value = "/student/topic",method= RequestMethod.POST)
@@ -37,6 +40,23 @@ public class StudentController {
         System.out.println(topic.getTopicStatus());
         return "success";
     }
+
+    @RequestMapping("/list")
+    @ResponseBody
+    public MyResult getTopicListBytopicAuditStatus() {
+        MyResult result = new MyResult();
+        String topicAuditStatus = "Audit";
+        List<Topic> list = topicService.getTopicListBytopicAuditStatus(topicAuditStatus);
+//        System.out.println(list);
+//        System.out.println(list.get(0).getId());
+//        System.out.println(list.get(1).getClass());
+        result.setRows(list);
+//        System.out.println("111111111111111111111111111111111111111111");
+//        System.out.println(list.get(1).getClassName());
+        result.setTotal(topicService.getTopicCount());
+        return result;
+    }
+
 
 
 }

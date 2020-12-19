@@ -95,4 +95,8 @@ public interface TopicMapper {
     int updateByPrimaryKey(Topic record);
 
     List<Topic> getTopListByname(String name);
+
+    List<Topic> getTopicListBytopicAuditStatus(String topicAuditStatus);
+
+    List<Topic> getUnAuditList();
 }

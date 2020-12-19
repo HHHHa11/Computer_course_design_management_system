@@ -17,5 +17,7 @@ public interface TopicService {
 //    public String readExcelFile(MultipartFile file);
     Topic getTopicById(Integer id);
     List<Topic> getTopicListByname(String name);
+    List<Topic> getTopicListBytopicAuditStatus(String topicAuditStatus);
 
+    List<Topic> getUnAuditList();
 }

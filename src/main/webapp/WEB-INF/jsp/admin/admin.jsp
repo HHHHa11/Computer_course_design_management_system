@@ -148,7 +148,7 @@
                                 <button class="btn btn-link btn-block text-left collapsed" type="button"
                                         data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
                                         aria-controls="collapseTwo">
-                                    Collapsible Group Item #2
+                                    选题管理
                                 </button>
                             </h2>
                         </div>
@@ -156,12 +156,12 @@
                              data-parent="#accordionExample">
                             <div class="card-body">
                                 <div style="width:100%">
-                                    <button type="button" class="btn btn-light button-style-for-light">
+                                    <button type="button" class="btn btn-light button-style-for-light" onclick="opentable('alltopic')">
                                         <span data-feather="file"></span>
-                                        学期管理
+                                      所有课题选择
                                     </button>
                                     <br>
-                                    <button type="button" class="btn btn-light button-style-for-light">学生信息管理</button>
+                                    <button type="button" class="btn btn-light button-style-for-light" onclick="opentable('topicaudit')">课题审核</button>
                                     <br>
                                     <button type="button" class="btn btn-light button-style-for-light">Secondary
                                     </button>
@@ -215,7 +215,7 @@
         </nav>
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-            <div style="height: 750px;width: 100%;" id="home">
+            <div style="height: 1250px;width: 100%;" id="home">
 
             </div>
 

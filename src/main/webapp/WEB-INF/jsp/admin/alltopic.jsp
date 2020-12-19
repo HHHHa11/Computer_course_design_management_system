@@ -21,39 +21,40 @@
 
         var url;
 
-        // function deleteTopic() {
-        //     var selectedRows = $("#dg").datagrid("getSelections");
-        //     if (selectedRows.length == 0) {
-        //         $.messager.alert("系统提示", "请选择要删除的数据！");
-        //         return;
-        //     }
-        //     var strIds = [];
-        //     for (var i = 0; i < selectedRows.length; i++) {
-        //         strIds.push(selectedRows[i].id);
-        //     }
-        //     var ids = strIds.join(",");
-        //     $.messager.confirm("系统提示", "您确定要删除这<font color=red>" + selectedRows.length + "</font>条数据吗？", function (r) {
-        //         if (r) {
-        //             $.post("/teacher/topic/delete/" + ids, {}, function (result) {
-        //                 if (result == "success") {
-        //                     $("#dg").datagrid("reload");
-        //                 } else {
-        //                     $.messager.alert("系统提示", "数据删除失败！");
-        //                 }
-        //             });
-        //         }
-        //     });
-        // }
+        function deleteTopic() {
+            var selectedRows = $("#dg").datagrid("getSelections");
+            if (selectedRows.length == 0) {
+                $.messager.alert("系统提示", "请选择要删除的数据！");
+                return;
+            }
+            var strIds = [];
+            for (var i = 0; i < selectedRows.length; i++) {
+                strIds.push(selectedRows[i].id);
+            }
+            var ids = strIds.join(",");
+            $.messager.confirm("系统提示", "您确定要删除这<font color=red>" + selectedRows.length + "</font>条数据吗？", function (r) {
+                if (r) {
+                    $.post("/admin/topic/delete/" + ids, {}, function (result) {
 
-        // function openTopicModifyDialog() {
-        //     var selectedRows = $("#dg").datagrid("getSelections");
-        //     if (selectedRows.length != 1) {
-        //         $.messager.alert("系统提示", "请选择一条要编辑的数据！");
-        //         return;
-        //     }
-        //     var row = selectedRows[0];
-        //     window.parent.opentable('teacher/topic/modifyTopic/'+row.id)
-        // }
+                        if (result == "success") {
+                            $("#dg").datagrid("reload");
+                        } else {
+                            $.messager.alert("系统提示", "数据删除失败！");
+                        }
+                    });
+                }
+            });
+        }
+
+        function openTopicModifyDialog() {
+            var selectedRows = $("#dg").datagrid("getSelections");
+            if (selectedRows.length != 1) {
+                $.messager.alert("系统提示", "请选择一条要编辑的数据！");
+                return;
+            }
+            var row = selectedRows[0];
+            window.parent.opentable('admin/topic/modifyTopic/' + row.id)
+        }
 
         // function saveTopic() {
         //     $("#fm").form("submit", {
@@ -76,31 +77,30 @@
         //     });
         // }
 
-        // function resetValue() {
-        //     $("#typeName").val("");
-        //     $("#orderNo").val("");
-        // }
+        function resetValue() {
+            $("#typeName").val("");
+            $("#orderNo").val("");
+        }
 
         // function closeTopicDialog() {
         //     $("#dlg").dialog("close");
         //     resetValue();
         // }
 
-        // function batchaddTopic() {
-        //     $("#dlg1").dialog("open").dialog("setTitle", "批量添加班级信息信息");
-        //
-        // }
+        function batchaddTopic() {
+            $("#dlg1").dialog("open").dialog("setTitle", "批量添加班级信息信息");
 
-        //这是一个带选题功能的页面
+        }
+
         function formatTitle(val, row) {
-            return "<a target='_self' style='text-decoration:none' href='/articlechoose/" + row.id + "'>" + val + "</a>"
+            return "<a target='_self' style='text-decoration:none' href='/article/" + row.id + "'>" + val + "</a>"
         }
     </script>
 </head>
 <body style="margin: 1px">
 <table id="dg" title="班级信息管理" class="easyui-datagrid"
        fitColumns="true" pagination="true" rownumbers="true"
-       url="/student/topic/list" fit="true" toolbar="#tb">
+       url="/admin/topic/list" fit="true" toolbar="#tb">
     <thead>
     <tr>
         <th field="cb" checkbox="true" align="center"></th>
@@ -111,17 +111,17 @@
         <th field="topicType" width="100" align="center">题目类别</th>
         <th field="topicSource" width="100" align="center">题目来源</th>
         <th field="topicStatus" width="100" align="center">题目状态</th>
-        <th field="teacherName" width="100" align="center">发布老师</th>
+        <th field="topicAuditStatus" width="100" align="center">题目审核状态</th>
 
     </tr>
     </thead>
 </table>
 <div id="tb">
     <div>
-<%--        <a href="javascript:openTopicModifyDialog()" class="easyui-linkbutton" iconCls="icon-edit"--%>
-<%--           plain="true">修改</a>--%>
-<%--        <a href="javascript:deleteTopic()" class="easyui-linkbutton" iconCls="icon-remove" plain="true">删除</a>--%>
-<%--        <a href="javascript:batchaddTopic()" class="easyui-linkbutton" iconCls="icon-add" plain="true">批量增加</a>--%>
+        <a href="javascript:openTopicModifyDialog()" class="easyui-linkbutton" iconCls="icon-edit"
+           plain="true">修改</a>
+        <a href="javascript:deleteTopic()" class="easyui-linkbutton" iconCls="icon-remove" plain="true">删除</a>
+        <a href="javascript:batchaddTopic()" class="easyui-linkbutton" iconCls="icon-add" plain="true">批量增加</a>
     </div>
 </div>
 

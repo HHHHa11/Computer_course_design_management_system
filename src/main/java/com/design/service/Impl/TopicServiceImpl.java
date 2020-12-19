@@ -102,4 +102,13 @@ public class TopicServiceImpl implements TopicService {
         return topicMapper.getTopListByname(name);
     }
 
+    @Override
+    public List<Topic> getTopicListBytopicAuditStatus(String topicAuditStatus) {
+        return topicMapper.getTopicListBytopicAuditStatus(topicAuditStatus);
+    }
+
+    @Override
+    public List<Topic> getUnAuditList() {
+        return topicMapper.getUnAuditList();
+    }
 }

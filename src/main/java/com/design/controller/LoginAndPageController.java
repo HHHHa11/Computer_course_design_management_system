@@ -2,7 +2,6 @@ package com.design.controller;
 
 import com.Test.Test;
 import com.design.Util.CryptographyUtil;
-import com.design.entity.CourseType;
 import com.design.entity.User;
 import com.design.service.CourseTypeService;
 import com.design.service.SemesterTypeService;
@@ -217,14 +216,35 @@ public class LoginAndPageController {
         return "admin/topicshow";
     }
 
-    @RequestMapping("/articlestudent/{ids}")
-    public String showArticlestudent(@PathVariable int ids, Model model) {
+    @RequestMapping("/articlechoose/{ids}")
+    public String showArticlechoose(@PathVariable int ids, Model model) {
         if (topicService.getTopicById(ids) == null) {
             return "error";
         }
         model.addAttribute("topic", topicService.getTopicById(ids));
-        return "topic_content_forstudent";
+        return "topic_content_for_choose_topic";
     }
+
+    @RequestMapping("/alltopic")
+    public String alltopic() {
+        return "admin/alltopic";
+    }
+
+    @RequestMapping("/topicaudit")
+    public String topicaudit() {
+        return "admin/topicaudit";
+    }
+
+    @RequestMapping("/articleaudit/{ids1}")
+    public String showArticleAudit(@PathVariable int ids1, Model model) {
+        if (topicService.getTopicById(ids1) == null) {
+            return "error";
+        }
+        model.addAttribute("topic", topicService.getTopicById(ids1));
+        return "topic_content_for_audit";
+    }
+
+
 
 
 
