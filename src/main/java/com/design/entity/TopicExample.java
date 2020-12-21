@@ -1163,6 +1163,76 @@ public class TopicExample {
             addCriterion("topic_audit_status not between", value1, value2, "topicAuditStatus");
             return (Criteria) this;
         }
+
+        public Criteria andTopicAssignmentbookAddressIsNull() {
+            addCriterion("topic_assignmentbook_address is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicAssignmentbookAddressIsNotNull() {
+            addCriterion("topic_assignmentbook_address is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicAssignmentbookAddressEqualTo(String value) {
+            addCriterion("topic_assignmentbook_address =", value, "topicAssignmentbookAddress");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicAssignmentbookAddressNotEqualTo(String value) {
+            addCriterion("topic_assignmentbook_address <>", value, "topicAssignmentbookAddress");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicAssignmentbookAddressGreaterThan(String value) {
+            addCriterion("topic_assignmentbook_address >", value, "topicAssignmentbookAddress");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicAssignmentbookAddressGreaterThanOrEqualTo(String value) {
+            addCriterion("topic_assignmentbook_address >=", value, "topicAssignmentbookAddress");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicAssignmentbookAddressLessThan(String value) {
+            addCriterion("topic_assignmentbook_address <", value, "topicAssignmentbookAddress");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicAssignmentbookAddressLessThanOrEqualTo(String value) {
+            addCriterion("topic_assignmentbook_address <=", value, "topicAssignmentbookAddress");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicAssignmentbookAddressLike(String value) {
+            addCriterion("topic_assignmentbook_address like", value, "topicAssignmentbookAddress");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicAssignmentbookAddressNotLike(String value) {
+            addCriterion("topic_assignmentbook_address not like", value, "topicAssignmentbookAddress");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicAssignmentbookAddressIn(List<String> values) {
+            addCriterion("topic_assignmentbook_address in", values, "topicAssignmentbookAddress");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicAssignmentbookAddressNotIn(List<String> values) {
+            addCriterion("topic_assignmentbook_address not in", values, "topicAssignmentbookAddress");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicAssignmentbookAddressBetween(String value1, String value2) {
+            addCriterion("topic_assignmentbook_address between", value1, value2, "topicAssignmentbookAddress");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicAssignmentbookAddressNotBetween(String value1, String value2) {
+            addCriterion("topic_assignmentbook_address not between", value1, value2, "topicAssignmentbookAddress");
+            return (Criteria) this;
+        }
     }
 
     /**

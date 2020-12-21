@@ -244,6 +244,20 @@ public class LoginAndPageController {
         return "topic_content_for_audit";
     }
 
+    @RequestMapping("/assignment_book")
+    public String assignment_book() {
+        return "admin/assignment_book";
+    }
+
+    @RequestMapping("/articleassignmentbooklist/{ids2}")
+    public String showArticleAssignmentBook(@PathVariable int ids2, Model model) {
+        if (topicService.getTopicById(ids2) == null) {
+            return "error";
+        }
+        model.addAttribute("topic", topicService.getTopicById(ids2));
+        return "topic_content_for_articleAssignmentBook";
+    }
+
 
 
 

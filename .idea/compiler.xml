@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Computer_course_design_management_system" />
+        <module name="Computer_course_design_management_system1" />
         <module name="Computer_course_design_management_system - 副本 (2) - 副本" />
       </profile>
     </annotationProcessing>
@@ -15,6 +16,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Computer_course_design_management_system" options="-XDignore.symbol.file" />
       <module name="Computer_course_design_management_system - 副本 (2) - 副本" options="-XDignore.symbol.file" />
+      <module name="Computer_course_design_management_system1" options="-XDignore.symbol.file" />
     </option>
   </component>
 </project>

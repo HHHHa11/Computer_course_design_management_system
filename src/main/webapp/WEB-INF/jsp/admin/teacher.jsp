@@ -131,8 +131,7 @@
                                     <br>
                                     <button type="button" class="btn btn-light button-style-for-light" onclick="opentable('topicmanage')">题目管理</button>
                                     <br>
-                                    <button type="button" class="btn btn-light button-style-for-light">Secondary
-                                    </button>
+                                    <button type="button" class="btn btn-light button-style-for-light" onclick="opentable('assignment_book')">下达任务书</button>
                                     <br>
                                     <button type="button" class="btn btn-light button-style-for-light">Secondary
                                     </button>

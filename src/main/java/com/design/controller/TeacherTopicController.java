@@ -8,6 +8,7 @@ import com.design.service.SemesterTypeService;
 import com.design.service.TopicService;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -16,12 +17,16 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
 @Controller
 @RequestMapping(value = "/teacher/topic", method = RequestMethod.POST)
 public class TeacherTopicController {
+    @Value("${UPLOAD_PATH}")
+    private String UPLOAD_PATH;
 
     @Autowired
     private TopicService topicService;
@@ -152,6 +157,62 @@ public class TeacherTopicController {
         model.addAttribute("topic", topicService.getTopicById(id));
         model.addAttribute("topicId",id);
         return "admin/modifyBlog";
+    }
+
+    @RequestMapping("/assignmentbooklist")
+    @ResponseBody
+    public MyResult getTopicListByNameAndChosen() {
+        MyResult result = new MyResult();
+        User user = (User) SecurityUtils.getSubject().getSession().getAttribute("user");
+        String name = user.getName();
+        System.out.println(name);
+//        老师只能看属于自己的题目
+        List<Topic> list = topicService.getTopicListByNameAndChosen(name);
+        //        System.out.println(list);
+        //        System.out.println(list.get(0).getId());
+        //        System.out.println(list.get(1).getClass());
+        result.setRows(list);
+        //        System.out.println("111111111111111111111111111111111111111111");
+        //        System.out.println(list.get(1).getClassName());
+        result.setTotal(topicService.getTopicCount());
+        return result;
+    }
+
+    @RequestMapping("/AssignmentBook/{id1}")
+    @ResponseBody
+    public String Upload(@PathVariable Integer id1,MultipartFile file,HttpServletRequest request) throws IOException {
+         System.out.println(id1+"______________________________");
+         String path = request.getServletContext().getRealPath(UPLOAD_PATH);
+         System.out.println(path);
+         if (file == null){
+             return "filenull";
+         }
+         String fileName = file.getOriginalFilename();
+         File dir = new File(path,fileName);
+         System.out.println("filename"+fileName);
+         System.out.println(dir.exists());
+         System.out.println("file_status:"+file.isEmpty());
+
+//判断文件内容是否为空
+         if(file.isEmpty() == true){
+             return "fileempty";
+         }
+//         判断指定文件夹是否存在
+        else if (!dir.exists()) {
+            System.out.println("111111111111111111111111111111111111111111111");
+            dir.mkdirs();
+            file.transferTo(dir);
+        } else {
+            file.transferTo(dir);
+
+        }
+        Topic topic = topicService.getTopicById(id1);
+        topic.setTopicAssignmentbookAddress(UPLOAD_PATH+"/"+fileName);
+        System.out.println(UPLOAD_PATH + "/" + fileName);
+        topicService.updateTopic(topic);
+
+        return "success";
+
     }
 
 }

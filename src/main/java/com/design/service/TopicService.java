@@ -20,4 +20,6 @@ public interface TopicService {
     List<Topic> getTopicListBytopicAuditStatus(String topicAuditStatus);
 
     List<Topic> getUnAuditList();
+
+    List<Topic> getTopicListByNameAndChosen(String name);
 }

@@ -111,4 +111,9 @@ public class TopicServiceImpl implements TopicService {
     public List<Topic> getUnAuditList() {
         return topicMapper.getUnAuditList();
     }
+
+    @Override
+    public List<Topic> getTopicListByNameAndChosen(String name) {
+        return topicMapper.getTopicListByNameAndChosen(name);
+    }
 }
