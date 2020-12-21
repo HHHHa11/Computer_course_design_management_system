@@ -21,6 +21,7 @@
     <result column="topic_chosen_student" jdbcType="VARCHAR" property="topicChosenStudent" />
     <result column="topic_audit_status" jdbcType="VARCHAR" property="topicAuditStatus" />
     <result column="topic_assignmentbook_address" jdbcType="VARCHAR" property="topicAssignmentbookAddress" />
+    <result column="topic_assignmentbook_name" jdbcType="VARCHAR" property="topicAssignmentbookName" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--
@@ -95,7 +96,7 @@
     -->
     id, topic_title, topic_course, topic_semester, topic_type, topic_source, topic_integrated_curriculum, 
     topic_content, topic_requirements, topic_main_difficulties, teacher_name, topic_status, 
-    topic_chosen_student, topic_audit_status, topic_assignmentbook_address
+    topic_chosen_student, topic_audit_status, topic_assignmentbook_address, topic_assignmentbook_name
   </sql>
   <select id="selectByExample" parameterType="com.design.entity.TopicExample" resultMap="BaseResultMap">
     <!--
@@ -153,15 +154,15 @@
       topic_integrated_curriculum, topic_content, 
       topic_requirements, topic_main_difficulties, 
       teacher_name, topic_status, topic_chosen_student, 
-      topic_audit_status, topic_assignmentbook_address
-      )
+      topic_audit_status, topic_assignmentbook_address, 
+      topic_assignmentbook_name)
     values (#{id,jdbcType=INTEGER}, #{topicTitle,jdbcType=VARCHAR}, #{topicCourse,jdbcType=VARCHAR}, 
       #{topicSemester,jdbcType=VARCHAR}, #{topicType,jdbcType=VARCHAR}, #{topicSource,jdbcType=VARCHAR}, 
       #{topicIntegratedCurriculum,jdbcType=VARCHAR}, #{topicContent,jdbcType=VARCHAR}, 
       #{topicRequirements,jdbcType=VARCHAR}, #{topicMainDifficulties,jdbcType=VARCHAR}, 
       #{teacherName,jdbcType=VARCHAR}, #{topicStatus,jdbcType=VARCHAR}, #{topicChosenStudent,jdbcType=VARCHAR}, 
-      #{topicAuditStatus,jdbcType=VARCHAR}, #{topicAssignmentbookAddress,jdbcType=VARCHAR}
-      )
+      #{topicAuditStatus,jdbcType=VARCHAR}, #{topicAssignmentbookAddress,jdbcType=VARCHAR}, 
+      #{topicAssignmentbookName,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.design.entity.Topic">
     <!--
@@ -215,6 +216,9 @@
       <if test="topicAssignmentbookAddress != null">
         topic_assignmentbook_address,
       </if>
+      <if test="topicAssignmentbookName != null">
+        topic_assignmentbook_name,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -261,6 +265,9 @@
       </if>
       <if test="topicAssignmentbookAddress != null">
         #{topicAssignmentbookAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="topicAssignmentbookName != null">
+        #{topicAssignmentbookName,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -326,6 +333,9 @@
       <if test="record.topicAssignmentbookAddress != null">
         topic_assignmentbook_address = #{record.topicAssignmentbookAddress,jdbcType=VARCHAR},
       </if>
+      <if test="record.topicAssignmentbookName != null">
+        topic_assignmentbook_name = #{record.topicAssignmentbookName,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -351,7 +361,8 @@
       topic_status = #{record.topicStatus,jdbcType=VARCHAR},
       topic_chosen_student = #{record.topicChosenStudent,jdbcType=VARCHAR},
       topic_audit_status = #{record.topicAuditStatus,jdbcType=VARCHAR},
-      topic_assignmentbook_address = #{record.topicAssignmentbookAddress,jdbcType=VARCHAR}
+      topic_assignmentbook_address = #{record.topicAssignmentbookAddress,jdbcType=VARCHAR},
+      topic_assignmentbook_name = #{record.topicAssignmentbookName,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -405,6 +416,9 @@
       <if test="topicAssignmentbookAddress != null">
         topic_assignmentbook_address = #{topicAssignmentbookAddress,jdbcType=VARCHAR},
       </if>
+      <if test="topicAssignmentbookName != null">
+        topic_assignmentbook_name = #{topicAssignmentbookName,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -427,7 +441,8 @@
       topic_status = #{topicStatus,jdbcType=VARCHAR},
       topic_chosen_student = #{topicChosenStudent,jdbcType=VARCHAR},
       topic_audit_status = #{topicAuditStatus,jdbcType=VARCHAR},
-      topic_assignmentbook_address = #{topicAssignmentbookAddress,jdbcType=VARCHAR}
+      topic_assignmentbook_address = #{topicAssignmentbookAddress,jdbcType=VARCHAR},
+      topic_assignmentbook_name = #{topicAssignmentbookName,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <select id="getTopListByname" resultMap="BaseResultMap">
@@ -442,7 +457,7 @@
   </select>
   <select id="getTopicListBytopicAuditStatus" resultMap="BaseResultMap">
     select
-    <include refid="Base_Column_List"/>
+    <include refid="Base_Column_List" />
     from topic
     where topic_audit_status = #{topicAuditStatus,jdbcType=VARCHAR}
 
@@ -451,16 +466,23 @@
   </select>
   <select id="getUnAuditList" resultMap="BaseResultMap">
     select
-    <include refid="Base_Column_List"/>
+    <include refid="Base_Column_List" />
     from topic
     where topic_audit_status ='unAudit'
   </select>
   <select id="getTopicListByNameAndChosen" resultMap="BaseResultMap">
     select
-    <include refid="Base_Column_List"/>
+    <include refid="Base_Column_List" />
     from topic
     where teacher_name = #{name,jdbcType=VARCHAR}
     and topic_status = 'chosen'
+
+  </select>
+  <select id="getTopicListBytopicChosenStudent" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from topic
+    where topic_chosen_student = #{topicChosenStudent,jdbcType=VARCHAR}
 
   </select>
 </mapper>

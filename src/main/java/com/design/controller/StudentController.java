@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
+import java.net.URLEncoder;
 import java.util.List;
 
 @Controller
@@ -55,6 +59,65 @@ public class StudentController {
 //        System.out.println(list.get(1).getClassName());
         result.setTotal(topicService.getTopicCount());
         return result;
+    }
+
+    @RequestMapping("/mytopiclist")
+    @ResponseBody
+    public MyResult getTopicListBytopicChosenStudent(){
+        MyResult result = new MyResult();
+        User user = (User) SecurityUtils.getSubject().getSession().getAttribute("user");
+        String topicChosenStudent = user.getName();
+        List<Topic> list = topicService.getTopicListBytopicChosenStudent(topicChosenStudent);
+        result.setRows(list);
+        result.setTotal(topicService.getTopicCount());
+        return result;
+
+
+    }
+
+    @RequestMapping(value = "/AssignmentBookDownload/{id2}", method = RequestMethod.GET)
+    @ResponseBody
+    public void Upload(@PathVariable Integer id2, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        Topic topic = topicService.getTopicById(id2);
+
+        String Totalpath = topic.getTopicAssignmentbookAddress();
+
+        String path = request.getServletContext().getRealPath(Totalpath);
+
+        File fullURL = new File(path);
+
+//        System.out.println(fullURL.getName());
+//
+//        System.out.println(path);
+
+        InputStream bis = new BufferedInputStream(new FileInputStream(new File(path)));
+
+
+//        String Originfilename = path.substring(path.lastIndexOf("\\") + 1);
+        String filename = fullURL.getName();
+
+
+
+        filename = URLEncoder.encode(filename, "UTF-8");
+
+
+
+        response.addHeader("Content-Disposition", "attachment;filename=" + filename);
+
+
+        response.setContentType("multipart/form-data");
+
+
+        BufferedOutputStream out = new BufferedOutputStream(response.getOutputStream());
+
+        int len = 0;
+        while ((len = bis.read()) != -1) {
+            out.write(len);
+            out.flush();
+        }
+        out.close();
+
+
     }
 
 

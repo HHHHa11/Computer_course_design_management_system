@@ -129,7 +129,7 @@
                                        查看题目
                                     </button>
                                     <br>
-                                    <button type="button" class="btn btn-light button-style-for-light">学生信息管理</button>
+                                    <button type="button" class="btn btn-light button-style-for-light" onclick="opentable('mytopic')">我的选题</button>
                                     <br>
                                     <button type="button" class="btn btn-light button-style-for-light">Secondary
                                     </button>

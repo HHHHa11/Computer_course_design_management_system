@@ -102,4 +102,5 @@ public interface TopicMapper {
 
     List<Topic> getTopicListByNameAndChosen(String name);
 
+    List<Topic> getTopicListBytopicChosenStudent(String topicChosenStudent);
 }

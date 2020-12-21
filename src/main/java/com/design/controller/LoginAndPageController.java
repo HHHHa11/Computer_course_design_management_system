@@ -258,6 +258,20 @@ public class LoginAndPageController {
         return "topic_content_for_articleAssignmentBook";
     }
 
+    @RequestMapping("/mytopic")
+    public String mytopic() {
+        return "admin/mytopic";
+    }
+
+    @RequestMapping("/articledownload/{id3}")
+    public String showArticleDownload(@PathVariable int id3, Model model) {
+        if (topicService.getTopicById(id3) == null) {
+            return "error";
+        }
+        model.addAttribute("topic", topicService.getTopicById(id3));
+        return "topic_content_for_mytopic";
+    }
+
 
 
 

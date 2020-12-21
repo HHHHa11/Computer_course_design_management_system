@@ -22,4 +22,6 @@ public interface TopicService {
     List<Topic> getUnAuditList();
 
     List<Topic> getTopicListByNameAndChosen(String name);
+
+    List<Topic> getTopicListBytopicChosenStudent(String topicChosenStudent);
 }

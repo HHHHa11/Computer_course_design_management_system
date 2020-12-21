@@ -54,6 +54,7 @@
                 success: function (result) {
                     if (result == "success") {
                         alert("上传任务书成功!");
+                        window.location.reload();
 
                     } else if (result == "filenull") {
                         alert("上传的任务书不能为空!");
@@ -84,6 +85,7 @@
     <div>题目要求：${topic.topicRequirements}</div>
     <div>主要难点：${topic.topicMainDifficulties}</div>
     <div id="topic_status">题目状态：${topic.topicStatus}</div>
+    <div>任务书：${topic.topicAssignmentbookName}</div>
     请选择任务书：
     <input type="file" id="file" name="file"/><br>
     <input type="submit" onclick="chose()"/>

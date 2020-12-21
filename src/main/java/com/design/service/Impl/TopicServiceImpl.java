@@ -116,4 +116,9 @@ public class TopicServiceImpl implements TopicService {
     public List<Topic> getTopicListByNameAndChosen(String name) {
         return topicMapper.getTopicListByNameAndChosen(name);
     }
+
+    @Override
+    public List<Topic> getTopicListBytopicChosenStudent(String topicChosenStudent) {
+        return topicMapper.getTopicListBytopicChosenStudent(topicChosenStudent);
+    }
 }

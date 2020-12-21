@@ -70,10 +70,12 @@ public class TeacherTopicController {
 //        老师发布题目时一般认为题目为被任何人选取
         String topic_status = "unchosen";
         String topic_Audit_Status = "unAudit";
+        String topic_assignmentbook_name = "null";
 //        将topic还没有的内容填满
         topic.setTopicAuditStatus(topic_Audit_Status);
         topic.setTeacherName(teacher_Name);
         topic.setTopicStatus(topic_status);
+        topic.setTopicAssignmentbookName(topic_assignmentbook_name);
 
 //
 //        //补全blog属性
@@ -208,6 +210,7 @@ public class TeacherTopicController {
         }
         Topic topic = topicService.getTopicById(id1);
         topic.setTopicAssignmentbookAddress(UPLOAD_PATH+"/"+fileName);
+        topic.setTopicAssignmentbookName(fileName);
         System.out.println(UPLOAD_PATH + "/" + fileName);
         topicService.updateTopic(topic);
 
