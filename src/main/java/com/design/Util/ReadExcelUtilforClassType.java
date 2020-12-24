@@ -60,6 +60,7 @@ public class ReadExcelUtilforClassType {
             if (isExcel2007(fileName)) {
                 isExcel2003 = false;
             }
+//            core code
             semList = createExcel(mFile.getInputStream(), isExcel2003);
         } catch (Exception e) {
             e.printStackTrace();
@@ -80,10 +81,12 @@ public class ReadExcelUtilforClassType {
         try {
             Workbook wb = null;
             if (isExcel2003) {// 当excel是2003时,创建excel2003
+//                将输入流转化成excel表格wb
                 wb = new XSSFWorkbook(is);
             } else {// 当excel是2007时,创建excel2007
                 wb = new XSSFWorkbook(is);
             }
+//            读取Excel
             semList = readExcelValue(wb);// 读取Excel里面客户的信息
         } catch (IOException e) {
             e.printStackTrace();

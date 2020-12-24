@@ -1303,6 +1303,206 @@ public class TopicExample {
             addCriterion("topic_assignmentbook_name not between", value1, value2, "topicAssignmentbookName");
             return (Criteria) this;
         }
+
+        public Criteria andTopicReportAddressIsNull() {
+            addCriterion("topic_report_address is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicReportAddressIsNotNull() {
+            addCriterion("topic_report_address is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicReportAddressEqualTo(String value) {
+            addCriterion("topic_report_address =", value, "topicReportAddress");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicReportAddressNotEqualTo(String value) {
+            addCriterion("topic_report_address <>", value, "topicReportAddress");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicReportAddressGreaterThan(String value) {
+            addCriterion("topic_report_address >", value, "topicReportAddress");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicReportAddressGreaterThanOrEqualTo(String value) {
+            addCriterion("topic_report_address >=", value, "topicReportAddress");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicReportAddressLessThan(String value) {
+            addCriterion("topic_report_address <", value, "topicReportAddress");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicReportAddressLessThanOrEqualTo(String value) {
+            addCriterion("topic_report_address <=", value, "topicReportAddress");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicReportAddressLike(String value) {
+            addCriterion("topic_report_address like", value, "topicReportAddress");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicReportAddressNotLike(String value) {
+            addCriterion("topic_report_address not like", value, "topicReportAddress");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicReportAddressIn(List<String> values) {
+            addCriterion("topic_report_address in", values, "topicReportAddress");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicReportAddressNotIn(List<String> values) {
+            addCriterion("topic_report_address not in", values, "topicReportAddress");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicReportAddressBetween(String value1, String value2) {
+            addCriterion("topic_report_address between", value1, value2, "topicReportAddress");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicReportAddressNotBetween(String value1, String value2) {
+            addCriterion("topic_report_address not between", value1, value2, "topicReportAddress");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicReportNameIsNull() {
+            addCriterion("topic_report_name is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicReportNameIsNotNull() {
+            addCriterion("topic_report_name is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicReportNameEqualTo(String value) {
+            addCriterion("topic_report_name =", value, "topicReportName");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicReportNameNotEqualTo(String value) {
+            addCriterion("topic_report_name <>", value, "topicReportName");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicReportNameGreaterThan(String value) {
+            addCriterion("topic_report_name >", value, "topicReportName");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicReportNameGreaterThanOrEqualTo(String value) {
+            addCriterion("topic_report_name >=", value, "topicReportName");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicReportNameLessThan(String value) {
+            addCriterion("topic_report_name <", value, "topicReportName");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicReportNameLessThanOrEqualTo(String value) {
+            addCriterion("topic_report_name <=", value, "topicReportName");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicReportNameLike(String value) {
+            addCriterion("topic_report_name like", value, "topicReportName");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicReportNameNotLike(String value) {
+            addCriterion("topic_report_name not like", value, "topicReportName");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicReportNameIn(List<String> values) {
+            addCriterion("topic_report_name in", values, "topicReportName");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicReportNameNotIn(List<String> values) {
+            addCriterion("topic_report_name not in", values, "topicReportName");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicReportNameBetween(String value1, String value2) {
+            addCriterion("topic_report_name between", value1, value2, "topicReportName");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicReportNameNotBetween(String value1, String value2) {
+            addCriterion("topic_report_name not between", value1, value2, "topicReportName");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicScoreIsNull() {
+            addCriterion("topic_score is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicScoreIsNotNull() {
+            addCriterion("topic_score is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicScoreEqualTo(Integer value) {
+            addCriterion("topic_score =", value, "topicScore");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicScoreNotEqualTo(Integer value) {
+            addCriterion("topic_score <>", value, "topicScore");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicScoreGreaterThan(Integer value) {
+            addCriterion("topic_score >", value, "topicScore");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicScoreGreaterThanOrEqualTo(Integer value) {
+            addCriterion("topic_score >=", value, "topicScore");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicScoreLessThan(Integer value) {
+            addCriterion("topic_score <", value, "topicScore");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicScoreLessThanOrEqualTo(Integer value) {
+            addCriterion("topic_score <=", value, "topicScore");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicScoreIn(List<Integer> values) {
+            addCriterion("topic_score in", values, "topicScore");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicScoreNotIn(List<Integer> values) {
+            addCriterion("topic_score not in", values, "topicScore");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicScoreBetween(Integer value1, Integer value2) {
+            addCriterion("topic_score between", value1, value2, "topicScore");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicScoreNotBetween(Integer value1, Integer value2) {
+            addCriterion("topic_score not between", value1, value2, "topicScore");
+            return (Criteria) this;
+        }
     }
 
     /**

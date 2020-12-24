@@ -1,7 +1,6 @@
 package com.design.service;
 
 import com.design.entity.Topic;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -24,4 +23,6 @@ public interface TopicService {
     List<Topic> getTopicListByNameAndChosen(String name);
 
     List<Topic> getTopicListBytopicChosenStudent(String topicChosenStudent);
+
+    List<Topic> getTopicForExcel(String teacherName);
 }

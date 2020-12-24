@@ -272,6 +272,46 @@ public class LoginAndPageController {
         return "topic_content_for_mytopic";
     }
 
+    @RequestMapping("/report")
+    public String report() {
+        return "admin/report";
+    }
+
+
+    @RequestMapping("/articleuploadreport/{id4}")
+    public String showArticleUploadReport(@PathVariable int id4, Model model) {
+        if (topicService.getTopicById(id4) == null) {
+            return "error";
+        }
+        model.addAttribute("topic", topicService.getTopicById(id4));
+        return "topic_content_for_uploadreport";
+    }
+
+    @RequestMapping("/reportdownload")
+    public String reportdownload() {
+        return "admin/reportdownload";
+    }
+
+
+    @RequestMapping("/articlereportdownload/{id5}")
+    public String showArticleReportDownload(@PathVariable int id5, Model model) {
+        if (topicService.getTopicById(id5) == null) {
+            return "error";
+        }
+        model.addAttribute("topic", topicService.getTopicById(id5));
+        return "topic_content_for_reportdownload";
+    }
+
+    @RequestMapping("/score")
+    public String score() {
+        return "admin/score";
+    }
+
+    @RequestMapping("/scoreshow")
+    public String scoreshow() {
+        return "admin/scoreshow";
+    }
+
 
 
 

@@ -131,10 +131,10 @@
                                     <br>
                                     <button type="button" class="btn btn-light button-style-for-light" onclick="opentable('mytopic')">我的选题</button>
                                     <br>
-                                    <button type="button" class="btn btn-light button-style-for-light">Secondary
+                                    <button type="button" class="btn btn-light button-style-for-light" onclick="opentable('report')">报告书上传
                                     </button>
                                     <br>
-                                    <button type="button" class="btn btn-light button-style-for-light">Secondary
+                                    <button type="button" class="btn btn-light button-style-for-light" onclick="opentable('scoreshow')">成绩查询
                                     </button>
                                     <br>
                                     <button type="button" class="btn btn-light button-style-for-light">Secondary

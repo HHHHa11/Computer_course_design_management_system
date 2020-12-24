@@ -6,11 +6,13 @@ import com.design.pojo.MyResult;
 import com.design.service.TopicService;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,6 +23,8 @@ import java.util.List;
 @Controller
 @RequestMapping(value = "/student/topic",method= RequestMethod.POST)
 public class StudentController {
+    @Value("${UPLOAD_PATH}")
+    private String UPLOAD_PATH;
     @Autowired
     private TopicService topicService;
 
@@ -61,9 +65,11 @@ public class StudentController {
         return result;
     }
 
+//    查看自己选择了的题目
     @RequestMapping("/mytopiclist")
     @ResponseBody
     public MyResult getTopicListBytopicChosenStudent(){
+        System.out.println("------------------------------------------");
         MyResult result = new MyResult();
         User user = (User) SecurityUtils.getSubject().getSession().getAttribute("user");
         String topicChosenStudent = user.getName();
@@ -117,6 +123,44 @@ public class StudentController {
         }
         out.close();
 
+
+    }
+
+    @RequestMapping("/Report/{id3}")
+    @ResponseBody
+    public String Upload(@PathVariable Integer id3, MultipartFile file, HttpServletRequest request) throws IOException {
+        System.out.println(id3 + "______________________________");
+        String path = request.getServletContext().getRealPath(UPLOAD_PATH);
+        System.out.println(path);
+        if (file == null) {
+            return "filenull";
+        }
+        String fileName = file.getOriginalFilename();
+        File dir = new File(path, fileName);
+        System.out.println("filename" + fileName);
+        System.out.println(dir.exists());
+        System.out.println("file_status:" + file.isEmpty());
+
+//判断文件内容是否为空
+        if (file.isEmpty() == true) {
+            return "fileempty";
+        }
+//         判断指定文件夹是否存在
+        else if (!dir.exists()) {
+            System.out.println("111111111111111111111111111111111111111111111");
+            dir.mkdirs();
+            file.transferTo(dir);
+        } else {
+            file.transferTo(dir);
+
+        }
+        Topic topic = topicService.getTopicById(id3);
+        topic.setTopicReportAddress(UPLOAD_PATH + "/" + fileName);
+        topic.setTopicReportName(fileName);
+        System.out.println(UPLOAD_PATH + "/" + fileName);
+        topicService.updateTopic(topic);
+
+        return "success";
 
     }
 

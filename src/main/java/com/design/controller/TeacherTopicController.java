@@ -1,5 +1,6 @@
 package com.design.controller;
 
+import com.design.Util.ExportExcel;
 import com.design.entity.Topic;
 import com.design.entity.User;
 import com.design.pojo.MyResult;
@@ -16,9 +17,10 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.awt.*;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
+import java.net.URLEncoder;
 import java.util.Date;
 import java.util.List;
 
@@ -35,11 +37,12 @@ public class TeacherTopicController {
 
     @Autowired
     private SemesterTypeService semesterTypeService;
-//    @Autowired
+
+    //    @Autowired
 //    private BlogService blogService;
-     @RequestMapping("/list")
-     @ResponseBody
-     public MyResult getTopicListByPage() {
+    @RequestMapping("/list")
+    @ResponseBody
+    public MyResult getTopicListByPage() {
         MyResult result = new MyResult();
         User user = (User) SecurityUtils.getSubject().getSession().getAttribute("user");
         String name = user.getName();
@@ -49,14 +52,12 @@ public class TeacherTopicController {
         //        System.out.println(list);
         //        System.out.println(list.get(0).getId());
         //        System.out.println(list.get(1).getClass());
-         result.setRows(list);
+        result.setRows(list);
         //        System.out.println("111111111111111111111111111111111111111111");
         //        System.out.println(list.get(1).getClassName());
         result.setTotal(topicService.getTopicCount());
         return result;
-}
-
-
+    }
 
 
     @RequestMapping("/insert")
@@ -71,11 +72,13 @@ public class TeacherTopicController {
         String topic_status = "unchosen";
         String topic_Audit_Status = "unAudit";
         String topic_assignmentbook_name = "null";
+        String topic_report_name = "null";
 //        将topic还没有的内容填满
         topic.setTopicAuditStatus(topic_Audit_Status);
         topic.setTeacherName(teacher_Name);
         topic.setTopicStatus(topic_status);
         topic.setTopicAssignmentbookName(topic_assignmentbook_name);
+        topic.setTopicReportName(topic_report_name);
 
 //
 //        //补全blog属性
@@ -100,6 +103,7 @@ public class TeacherTopicController {
         topicService.insertTopic(topic);
         return "success";
     }
+
     @RequestMapping("/update")
     @ResponseBody
     public String updateTopic(Topic topic) {
@@ -152,12 +156,12 @@ public class TeacherTopicController {
 //        return mv;
 //    }
 
-    @RequestMapping(value = "/modifyTopic/{id}",method = RequestMethod.GET)
+    @RequestMapping(value = "/modifyTopic/{id}", method = RequestMethod.GET)
     public String showModifyBlog(@PathVariable Integer id, Model model) {
         model.addAttribute("courseTypeList", courseTypeService.getCourseTypeList());
         model.addAttribute("semesterTypeList", semesterTypeService.getSemesterTypeList());
         model.addAttribute("topic", topicService.getTopicById(id));
-        model.addAttribute("topicId",id);
+        model.addAttribute("topicId", id);
         return "admin/modifyBlog";
     }
 
@@ -168,7 +172,7 @@ public class TeacherTopicController {
         User user = (User) SecurityUtils.getSubject().getSession().getAttribute("user");
         String name = user.getName();
         System.out.println(name);
-//        老师只能看属于自己的题目
+//        看任务书列表时，老师只能看属于自己且被选择的题目
         List<Topic> list = topicService.getTopicListByNameAndChosen(name);
         //        System.out.println(list);
         //        System.out.println(list.get(0).getId());
@@ -182,23 +186,23 @@ public class TeacherTopicController {
 
     @RequestMapping("/AssignmentBook/{id1}")
     @ResponseBody
-    public String Upload(@PathVariable Integer id1,MultipartFile file,HttpServletRequest request) throws IOException {
-         System.out.println(id1+"______________________________");
-         String path = request.getServletContext().getRealPath(UPLOAD_PATH);
-         System.out.println(path);
-         if (file == null){
-             return "filenull";
-         }
-         String fileName = file.getOriginalFilename();
-         File dir = new File(path,fileName);
-         System.out.println("filename"+fileName);
-         System.out.println(dir.exists());
-         System.out.println("file_status:"+file.isEmpty());
+    public String Upload(@PathVariable Integer id1, MultipartFile file, HttpServletRequest request) throws IOException {
+        System.out.println(id1 + "______________________________");
+        String path = request.getServletContext().getRealPath(UPLOAD_PATH);
+        System.out.println(path);
+        if (file == null) {
+            return "filenull";
+        }
+        String fileName = file.getOriginalFilename();
+        File dir = new File(path, fileName);
+        System.out.println("filename" + fileName);
+        System.out.println(dir.exists());
+        System.out.println("file_status:" + file.isEmpty());
 
 //判断文件内容是否为空
-         if(file.isEmpty() == true){
-             return "fileempty";
-         }
+        if (file.isEmpty() == true) {
+            return "fileempty";
+        }
 //         判断指定文件夹是否存在
         else if (!dir.exists()) {
             System.out.println("111111111111111111111111111111111111111111111");
@@ -209,7 +213,7 @@ public class TeacherTopicController {
 
         }
         Topic topic = topicService.getTopicById(id1);
-        topic.setTopicAssignmentbookAddress(UPLOAD_PATH+"/"+fileName);
+        topic.setTopicAssignmentbookAddress(UPLOAD_PATH + "/" + fileName);
         topic.setTopicAssignmentbookName(fileName);
         System.out.println(UPLOAD_PATH + "/" + fileName);
         topicService.updateTopic(topic);
@@ -217,5 +221,121 @@ public class TeacherTopicController {
         return "success";
 
     }
+
+
+    @RequestMapping(value = "ReportDownload/{id5}", method = RequestMethod.GET)
+    @ResponseBody
+    public void Upload(@PathVariable Integer id5, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        Topic topic = topicService.getTopicById(id5);
+
+        String Totalpath = topic.getTopicReportAddress();
+
+        String path = request.getServletContext().getRealPath(Totalpath);
+
+        File fullURL = new File(path);
+
+//        System.out.println(fullURL.getName());
+//
+//        System.out.println(path);
+
+        InputStream bis = new BufferedInputStream(new FileInputStream(new File(path)));
+
+
+//        String Originfilename = path.substring(path.lastIndexOf("\\") + 1);
+        String filename = fullURL.getName();
+
+
+        filename = URLEncoder.encode(filename, "UTF-8");
+
+
+        response.addHeader("Content-Disposition", "attachment;filename=" + filename);
+
+
+        response.setContentType("multipart/form-data");
+
+
+        BufferedOutputStream out = new BufferedOutputStream(response.getOutputStream());
+
+        int len = 0;
+        while ((len = bis.read()) != -1) {
+            out.write(len);
+            out.flush();
+        }
+        out.close();
+
+    }
+
+    @RequestMapping(value = "/scoreadd/{id6}")
+    @ResponseBody
+    public String insertScoreTopic(@PathVariable Integer id6,Topic topic){
+        Topic topic1 = topicService.getTopicById(id6);
+        System.out.println(topic.getTopicScore()<0);
+//        添加时需要判断内容是否为空
+//        然后需要判断输入的分数是否在0-100之间
+        if (topic1.getTopicScore()!= null){
+            return "falseadd";
+        }else if (topic.getTopicScore()<0 || topic.getTopicScore()>100){
+            return "illegal";
+        }
+        topic1.setTopicScore(topic.getTopicScore());
+        topicService.updateTopic(topic1);
+        return "success";
+
+
+
+
+
+
+    }
+
+    @RequestMapping(value = "/scoreupdate/{id7}")
+    @ResponseBody
+    public String updateScoreTopic(@PathVariable Integer id7, Topic topic) {
+        Topic topic1 = topicService.getTopicById(id7);
+        System.out.println(topic.getTopicScore() < 0);
+//        添加时需要判断内容是否为空
+//        然后需要判断输入的分数是否在0-100之间
+
+        if (topic.getTopicScore() < 0 || topic.getTopicScore() > 100) {
+            return "illegal";
+        }
+        topic1.setTopicScore(topic.getTopicScore());
+        topicService.updateTopic(topic1);
+        return "success";
+
+
+    }
+
+    @RequestMapping("/scoredelete/{id8}")
+    @ResponseBody
+    public String deleteUser(@PathVariable String id8) {
+        String[] strings = id8.split(",");
+        for (String str : strings) {
+            int id = Integer.parseInt(str);
+            //删除关联的blog
+//            blogService.deleteBlogByTypeId(id);
+            Topic topic1 = topicService.getTopicById(id);
+            topic1.setTopicScore(null);
+            topicService.updateTopic(topic1);
+//            topicService.deleteUser(id);
+        }
+        return "success";
+    }
+
+    @RequestMapping(value = "/exportExcel", method = RequestMethod.GET)
+    public void export(HttpServletResponse response) {
+        User user = (User) SecurityUtils.getSubject().getSession().getAttribute("user");
+        String TeacherName = user.getName();
+        System.out.println(TeacherName+"111111111111111");
+        List<Topic> topicList = topicService.getTopicForExcel(TeacherName);
+        System.out.println("22222");
+//        System.out.println(topicList.get(33).getTopicSource() +"--------------------------------------------------------");
+        ExportExcel<Topic> ee = new ExportExcel<Topic>();
+        String[] headers = {"序号","题目","课程","学生名","成绩"};
+        String fileName = "成绩导出表";
+        ee.exportExcel(headers,topicList,fileName,response);
+    }
+
+
 
 }

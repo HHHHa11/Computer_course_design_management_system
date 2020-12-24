@@ -133,10 +133,10 @@
                                     <br>
                                     <button type="button" class="btn btn-light button-style-for-light" onclick="opentable('assignment_book')">下达任务书</button>
                                     <br>
-                                    <button type="button" class="btn btn-light button-style-for-light">Secondary
+                                    <button type="button" class="btn btn-light button-style-for-light" onclick="opentable('reportdownload')">报告书下载
                                     </button>
                                     <br>
-                                    <button type="button" class="btn btn-light button-style-for-light">Secondary
+                                    <button type="button" class="btn btn-light button-style-for-light" onclick="opentable('score')">成绩评定
                                     </button>
                                 </div>
                             </div>

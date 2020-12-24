@@ -92,7 +92,7 @@
         }
 
         function formatTitle(val, row) {
-            return "<a target='_self' style='text-decoration:none' href='/articledownload/" + row.id + "'>" + val + "</a>"
+            return "<a target='_self' style='text-decoration:none' href='/articleuploadreport/" + row.id + "'>" + val + "</a>"
         }
     </script>
 </head>

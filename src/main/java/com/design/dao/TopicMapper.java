@@ -103,4 +103,6 @@ public interface TopicMapper {
     List<Topic> getTopicListByNameAndChosen(String name);
 
     List<Topic> getTopicListBytopicChosenStudent(String topicChosenStudent);
+
+    List<Topic> getTopicForExcel(String teacherName);
 }

@@ -1,13 +1,11 @@
 package com.design.service.Impl;
 
-import com.design.Util.ReadExcelUtilforSemesterType;
 import com.design.dao.TopicMapper;
 import com.design.entity.Topic;
 import com.design.entity.TopicExample;
 import com.design.service.TopicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -120,5 +118,10 @@ public class TopicServiceImpl implements TopicService {
     @Override
     public List<Topic> getTopicListBytopicChosenStudent(String topicChosenStudent) {
         return topicMapper.getTopicListBytopicChosenStudent(topicChosenStudent);
+    }
+
+    @Override
+    public List<Topic> getTopicForExcel(String teacherName) {
+        return topicMapper.getTopicForExcel(teacherName);
     }
 }

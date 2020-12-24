@@ -92,14 +92,14 @@
         }
 
         function formatTitle(val, row) {
-            return "<a target='_self' style='text-decoration:none' href='/articledownload/" + row.id + "'>" + val + "</a>"
+            return "<a target='_self' style='text-decoration:none' href='/articlereportdownload/" + row.id + "'>" + val + "</a>"
         }
     </script>
 </head>
 <body style="margin: 1px">
 <table id="dg" title="班级信息管理" class="easyui-datagrid"
        fitColumns="true" pagination="true" rownumbers="true"
-       url="/student/topic/mytopiclist" fit="true" toolbar="#tb">
+       url="/teacher/topic/list" fit="true" toolbar="#tb">
     <thead>
     <tr>
         <th field="cb" checkbox="true" align="center"></th>
