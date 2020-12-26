@@ -114,7 +114,7 @@
                             <h2 class="mb-0">
                                 <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
                                         data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Collapsible Group Item #1
+                                    题目管理
                                 </button>
                             </h2>
                         </div>
@@ -131,13 +131,6 @@
                                     <br>
                                     <button type="button" class="btn btn-light button-style-for-light" onclick="opentable('topicmanage')">题目管理</button>
                                     <br>
-                                    <button type="button" class="btn btn-light button-style-for-light" onclick="opentable('assignment_book')">下达任务书</button>
-                                    <br>
-                                    <button type="button" class="btn btn-light button-style-for-light" onclick="opentable('reportdownload')">报告书下载
-                                    </button>
-                                    <br>
-                                    <button type="button" class="btn btn-light button-style-for-light" onclick="opentable('score')">成绩评定
-                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -149,7 +142,7 @@
                                 <button class="btn btn-link btn-block text-left collapsed" type="button"
                                         data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
                                         aria-controls="collapseTwo">
-                                    Collapsible Group Item #2
+                                    任务书及后续评定
                                 </button>
                             </h2>
                         </div>
@@ -157,14 +150,20 @@
                              data-parent="#accordionExample">
                             <div class="card-body">
                                 <div style="width:100%">
-                                    <button type="button" class="btn btn-light button-style-for-light">
-                                        <span data-feather="file"></span>
-                                        学期管理
+                                    <button type="button" class="btn btn-light button-style-for-light"
+                                            onclick="opentable('assignment_book')">下达任务书
                                     </button>
                                     <br>
-                                    <button type="button" class="btn btn-light button-style-for-light">学生信息管理</button>
+                                    <button type="button" class="btn btn-light button-style-for-light"
+                                            onclick="opentable('reportdownload')">报告书下载
+                                    </button>
                                     <br>
-                                    <button type="button" class="btn btn-light button-style-for-light">Secondary
+                                    <button type="button" class="btn btn-light button-style-for-light"
+                                            onclick="opentable('Process_guidance')">过程指导
+                                    </button>
+                                    <br>
+                                    <button type="button" class="btn btn-light button-style-for-light"
+                                            onclick="opentable('score')">成绩评定
                                     </button>
                                     <br>
                                     <button type="button" class="btn btn-light button-style-for-light">Secondary

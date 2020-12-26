@@ -74,85 +74,79 @@ function getArticleListOrderByClickCount() {
 }
 
 //加载更多文章
-function addMore(page, rows, semesterType, title) {
+function addMore(id) {
 
-    var mobileMatcher = window.matchMedia('(max-width:768px)');
+    // var mobileMatcher = window.matchMedia('(max-width:768px)');
     var isEnd = false;
 
     //设为同步请求(不同步的话isEnd会一直为false)
     $.ajaxSettings.async = false;
     //获取文章列表
-    $.post("/article/list", {
-            page: page,
-            rows: rows,
-            semesterType: semesterType,
-            title: title
-        },
+    $.post("/teacher/topic/guidanceinsertlist/"+id, {},
         function (data) {
             var articles = data.rows;
             var length = articles.length;
             var result = '';
             var total = data.total;
 
-            if (page * rows >= total) {
-                isEnd = true;
-            }
+            // if (page * rows >= total) {
+            //     isEnd = true;
+            // }
 
-            if (mobileMatcher.matches) {
+            // if (mobileMatcher.matches) {
+            //     for (var i = 0; i < length; i++) {
+            //         var article = articles[i];
+            //         result += '<li>\n' +
+            //             '                    <div class="content">\n' +
+            //             '                        <a class="title" target="_blank"\n' +
+            //             '                           href="' + '/article/' + article.id + '.html">' + article.title + '</a>\n' +
+            //             '                        <p class="abstract">\n' + getSummary(article.summary, 48) +
+            //             '                        </p>\n' +
+            //             '                        <div class="meta">\n' +
+            //             '                            <span><i class="fa fa-comment-o"></i> ' + article.replyCount + '</span>\n' +
+            //             '                            <span><i class="fa fa-heart-o"></i> ' + article.likeCount + '</span>\n' +
+            //             '                            <span><i class="fa fa-eye"></i> ' + article.clickCount + '</span>\n' +
+            //             '                        </div>\n' +
+            //             '                    </div>\n' +
+            //             '                </li>';
+            //     }
+            // } else {
                 for (var i = 0; i < length; i++) {
                     var article = articles[i];
-                    result += '<li>\n' +
-                        '                    <div class="content">\n' +
-                        '                        <a class="title" target="_blank"\n' +
-                        '                           href="' + '/article/' + article.id + '.html">' + article.title + '</a>\n' +
-                        '                        <p class="abstract">\n' + getSummary(article.summary, 48) +
-                        '                        </p>\n' +
-                        '                        <div class="meta">\n' +
-                        '                            <span><i class="fa fa-comment-o"></i> ' + article.replyCount + '</span>\n' +
-                        '                            <span><i class="fa fa-heart-o"></i> ' + article.likeCount + '</span>\n' +
-                        '                            <span><i class="fa fa-eye"></i> ' + article.clickCount + '</span>\n' +
-                        '                        </div>\n' +
-                        '                    </div>\n' +
-                        '                </li>';
-                }
-            } else {
-                for (var i = 0; i < length; i++) {
-                    var article = articles[i];
-                    if (article.blogImage == null || article.blogImage == "") {
-                        result += '<li>\n' +
-                            '                    <div class="content">\n' +
-                            '                        <a class="title" target="_blank"\n' +
-                            '                           href="' + '/article/' + article.id + '.html">' + article.title + '</a>\n' +
-                            '                        <p class="abstract">\n' + article.summary +
-                            '                        </p>\n' +
-                            '                        <div class="meta">\n' +
-                            '                            <span><i class="fa fa-comment-o"></i> ' + article.replyCount + '</span>\n' +
-                            '                            <span><i class="fa fa-heart-o"></i> ' + article.likeCount + '</span>\n' +
-                            '                            <span><i class="fa fa-eye"></i> ' + article.clickCount + '</span>\n' +
-                            '                        </div>\n' +
-                            '                    </div>\n' +
-                            '                </li>';
-                    } else {
-                        result += ' <li class="have-img">\n' +
-                            '                    <a class="wrap-img" href="' + '/article/' + article.id + '.html" target="_blank">\n' +
-                            '                        <img src="' + article.blogImage + '">\n' +
-                            '                    </a>\n' +
-                            '                    <div class="content">\n' +
-                            '                        <a class="title" target="_blank" href="' + '/article/' + article.id + '.html">' + article.title + '</a>\n' +
-                            '                        <p class="abstract">\n' +
-                            '                            ' + article.summary + '\n' +
-                            '                        </p>\n' +
-                            '                        <div class="meta">\n' +
-                            '                            <span><i class="fa fa-comment-o"></i> ' + article.replyCount + '</span>\n' +
-                            '                            <span><i class="fa fa-heart-o"></i> ' + article.likeCount + '</span>\n' +
-                            '                            <span><i class="fa fa-eye"></i> ' + article.clickCount + ' </span>\n' +
-                            '                        </div>\n' +
-                            '                    </div>\n' +
-                            '                </li>';
+                    // if (article.blogImage == null || article.blogImage == "") {
+                    //     result += '<li>\n' +
+                    //         '                    <div class="content">\n' +
+                    //         '                        <a class="title" target="_blank"\n' +
+                    //         '                           href="' + '/article/' + article.id + '.html">' + article.title + '</a>\n' +
+                    //         '                        <p class="abstract">\n' + article.summary +
+                    //         '                        </p>\n' +
+                    //         '                        <div class="meta">\n' +
+                    //         '                            <span><i class="fa fa-comment-o"></i> ' + article.replyCount + '</span>\n' +
+                    //         '                            <span><i class="fa fa-heart-o"></i> ' + article.likeCount + '</span>\n' +
+                    //         '                            <span><i class="fa fa-eye"></i> ' + article.clickCount + '</span>\n' +
+                    //         '                        </div>\n' +
+                    //         '                    </div>\n' +
+                    //         '                </li>';
+                    // } else {
+                    result += ' <div>article.topicGuidance</div> ';
+                            // '                    <a class="wrap-img" href="' + '/article/' + article.id + '.html" target="_blank">\n' +
+                            // '                        <img src="' + article.blogImage + '">\n' +
+                            // '                    </a>\n' +
+                            // '                    <div class="content">\n' +
+                            // '                        <a class="title" target="_blank" href="' + '/article/' + article.id + '.html">' + article.title + '</a>\n' +
+                            // '                        <p class="abstract">\n' +
+                            // '                            ' + article.summary + '\n' +
+                            // '                        </p>\n' +
+                            // '                        <div class="meta">\n' +
+                            // '                            <span><i class="fa fa-comment-o"></i> ' + article.replyCount + '</span>\n' +
+                            // '                            <span><i class="fa fa-heart-o"></i> ' + article.likeCount + '</span>\n' +
+                            // '                            <span><i class="fa fa-eye"></i> ' + article.clickCount + ' </span>\n' +
+                            // '                        </div>\n' +
+                            // '                    </div>\n' +
+                            // '                </li>';
                     }
 
-                }
-            }
+
 
             $('.blog-list').append(result);
 

@@ -1,11 +1,14 @@
 package com.design.controller;
 
 import com.design.Util.ExportExcel;
+import com.design.entity.Blog;
 import com.design.entity.Topic;
+import com.design.entity.TopicGuidances;
 import com.design.entity.User;
 import com.design.pojo.MyResult;
 import com.design.service.CourseTypeService;
 import com.design.service.SemesterTypeService;
+import com.design.service.TopicGuidanceService;
 import com.design.service.TopicService;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +17,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -37,6 +39,9 @@ public class TeacherTopicController {
 
     @Autowired
     private SemesterTypeService semesterTypeService;
+
+    @Autowired
+    private TopicGuidanceService topicGuidanceService;
 
     //    @Autowired
 //    private BlogService blogService;
@@ -334,6 +339,61 @@ public class TeacherTopicController {
         String[] headers = {"序号","题目","课程","学生名","成绩"};
         String fileName = "成绩导出表";
         ee.exportExcel(headers,topicList,fileName,response);
+    }
+
+    @RequestMapping(value = "/commentinsert/{id9}",method = RequestMethod.GET)
+    @ResponseBody
+    public String commentInsert(@PathVariable int id9, Topic topic){
+        System.out.println(id9);
+        System.out.println(topic.getTopicComment());
+        System.out.println("11111111111111111");
+        if(topic.getTopicComment() == null){
+            System.out.println("2222222222222");
+            return "false";
+        }
+        System.out.println("33333333333333333");
+        Topic topic1 = topicService.getTopicById(id9);
+        System.out.println("444444444444444444");
+        topic1.setTopicComment(topic.getTopicComment());
+        System.out.println("555555555555555555");
+        topicService.updateTopic(topic1);
+        System.out.println(topicService.getTopicById(id9).getTopicComment());
+        return "success";
+
+
+
+    }
+
+    @RequestMapping(value = "/guidanceinsert/{id10}", method = RequestMethod.GET)
+    @ResponseBody
+    public String commentInsert(@PathVariable int id10, TopicGuidances topicGuidances) {
+        System.out.println(topicGuidances.getTopicGuidance());
+        if(topicGuidances.getTopicGuidance() == null){
+            return "false";
+
+        }
+
+        topicGuidances.setTopicId(id10);
+        topicGuidanceService.inserttopicGuidances(topicGuidances);
+        return "success";
+
+
+
+    }
+
+    @RequestMapping(value = "/guidanceinsertlist/{id11}")
+    @ResponseBody
+    public MyResult guidanceInsertList(@PathVariable int id11){
+        System.out.println(id11);
+
+        MyResult result = new MyResult();
+        List<TopicGuidances> list = topicGuidanceService.getguidanceInsertList(id11);
+        System.out.println(list.get(0).getTopicGuidance());
+        result.setTotal(topicGuidanceService.getguidanceCountByTypeId(id11));
+        result.setRows(list);
+
+        return result;
+
     }
 
 

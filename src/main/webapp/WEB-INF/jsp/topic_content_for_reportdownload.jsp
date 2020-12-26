@@ -33,8 +33,8 @@
             src="/static/static-easyui/plugin/mdeditor/editormd.min.js"></script>
     <script type="text/javascript">
         function chose(){
-            var id = ${id3};
-            $.messager.confirm("系统提示", "您确定要选择这个题目吗？", function (r) {
+            var id = ${id5};
+            $.messager.confirm("系统提示", "您确定要发布这条评论吗？", function (r) {
                 if (r) {
                     // $.post("/student/topic/chosen/"+id , {}, function (result) {
                     //     if (result == "success") {
@@ -43,12 +43,38 @@
                     //         $.messager.alert("系统提示", "选题失败！");
                     //     }
                     // });
-                    $("#topic_tontent_forstudent_form").ajaxSubmit({
-                        type:"get",
-                        url:"/student/topic/AssignmentBookDownload/"+id,
-                        contentType:false,
-                        processData:false,
-                    })
+                    // alert($("#topicComment").val())
+                    // $("#topic_tontent_forstudent_form1").ajaxSubmit({
+                    //     contentType:false,
+                    //     processData:false,
+                    //     success: function (result) {
+                    //         if (result == "success") {
+                    //             alert("选题成功!");
+                    //             window.location.reload();
+                    //
+                    //         } else {
+                    //             alert("选题失败!");
+                    //         }
+                    //     }
+                    // })
+                    $("#topic_tontent_forstudent_form1").form("submit", {
+                        url: "/teacher/topic/commentinsert/${id5}",
+                        onSubmit: function () {
+                            return $(this).form("validate");
+                        },
+                        success: function (result) {
+                            if (result == "success") {
+                                alert("提交评论成功!");
+                                window.location.reload();
+
+                            }else if (result == "false"){
+                                alert("评论不能为空!");
+                            }
+                            else {
+                                alert("提交评论失败!");
+                            }
+                        }
+                    });
                 }
             });
 
@@ -60,6 +86,10 @@
 <body>
 <form id="topic_tontent_forstudent_form" method="get" action="/teacher/topic/ReportDownload/${id5}">
     <a href="javascript:history.back(-1)" class="easyui-linkbutton">返回上一页</a>
+    <br>
+    <input type="submit" value="下载任务书">
+
+</form>
     <div>题目标题：${topic.topicTitle}</div>
     <div>所属课程：${topic.topicCourse}</div>
     <div>所属学期：${topic.topicSemester}</div>
@@ -71,12 +101,20 @@
     <div>主要难点：${topic.topicMainDifficulties}</div>
     <div id="topic_status">题目状态：${topic.topicStatus}</div>
     <div >报告书：${topic.topicReportName}</div>
-    <input type="submit" value="下载">
+    <div>评语:${topic.topicComment}</div>
+<form id="topic_tontent_forstudent_form1">
+
+    <div>
+        <textarea id="topicComment" name="topicComment" style="height:75px;width: 400px;"></textarea>
+    </div>
+    <a href="javascript:chose()" class="easyui-linkbutton">发布</a>
+
     <input type="hidden" id="id" name="id"/>
-
-
-
 </form>
+
+
+
+
 
 
 

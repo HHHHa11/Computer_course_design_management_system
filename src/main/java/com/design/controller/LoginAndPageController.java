@@ -312,6 +312,20 @@ public class LoginAndPageController {
         return "admin/scoreshow";
     }
 
+    @RequestMapping("/Process_guidance")
+    public String Process_guidance() {
+        return "admin/Process_guidance";
+    }
+
+    @RequestMapping("/Process_guidanceshow/{id6}")
+    public String Process_guidanceshow(@PathVariable int id6,Model model) {
+        if (topicService.getTopicById(id6) == null) {
+            return "error";
+        }
+        model.addAttribute("topic", topicService.getTopicById(id6));
+        return "topic_content_for_Process_guidanceshow";
+    }
+
 
 
 

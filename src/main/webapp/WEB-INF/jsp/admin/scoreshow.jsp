@@ -146,11 +146,14 @@
        fitColumns="true" pagination="true" rownumbers="true"
        url="/student/topic/mytopiclist" fit="true" toolbar="#tb">
     <thead>
-    <tr>
+    <tr >
 <%--        <th field="cb" checkbox="true" align="center"></th>--%>
-        <th field="id" width="5" align="center">编号</th>
+        <th field="id" width="2" align="center">编号</th>
+        <th field="topicSemester" width="3" align="center">学期</th>
+        <th field="topicCourse" width="5" align="center">课程名称</th>
         <th field="topicTitle" width="5" align="center">题目名</th>
-        <th field="topicScore" width="10" align="center">成绩</th>
+        <th field="topicScore" width="2" align="center">成绩</th>
+        <th field="topicComment" width="10" align="center">评语</th>
 
     </tr>
     </thead>

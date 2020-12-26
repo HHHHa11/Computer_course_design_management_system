@@ -51,6 +51,8 @@
                enableUpdateByExample="true"/>
         <table tableName="topic" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
                enableUpdateByExample="true"/>
+        <table tableName="topic_guidances" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
+               enableUpdateByExample="true"/>
         <table tableName="user" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
                enableUpdateByExample="true"/>
 

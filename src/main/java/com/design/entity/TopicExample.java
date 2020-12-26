@@ -1503,6 +1503,76 @@ public class TopicExample {
             addCriterion("topic_score not between", value1, value2, "topicScore");
             return (Criteria) this;
         }
+
+        public Criteria andTopicCommentIsNull() {
+            addCriterion("topic_comment is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicCommentIsNotNull() {
+            addCriterion("topic_comment is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicCommentEqualTo(String value) {
+            addCriterion("topic_comment =", value, "topicComment");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicCommentNotEqualTo(String value) {
+            addCriterion("topic_comment <>", value, "topicComment");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicCommentGreaterThan(String value) {
+            addCriterion("topic_comment >", value, "topicComment");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicCommentGreaterThanOrEqualTo(String value) {
+            addCriterion("topic_comment >=", value, "topicComment");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicCommentLessThan(String value) {
+            addCriterion("topic_comment <", value, "topicComment");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicCommentLessThanOrEqualTo(String value) {
+            addCriterion("topic_comment <=", value, "topicComment");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicCommentLike(String value) {
+            addCriterion("topic_comment like", value, "topicComment");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicCommentNotLike(String value) {
+            addCriterion("topic_comment not like", value, "topicComment");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicCommentIn(List<String> values) {
+            addCriterion("topic_comment in", values, "topicComment");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicCommentNotIn(List<String> values) {
+            addCriterion("topic_comment not in", values, "topicComment");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicCommentBetween(String value1, String value2) {
+            addCriterion("topic_comment between", value1, value2, "topicComment");
+            return (Criteria) this;
+        }
+
+        public Criteria andTopicCommentNotBetween(String value1, String value2) {
+            addCriterion("topic_comment not between", value1, value2, "topicComment");
+            return (Criteria) this;
+        }
     }
 
     /**

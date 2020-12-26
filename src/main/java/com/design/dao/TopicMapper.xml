@@ -25,6 +25,7 @@
     <result column="topic_report_address" jdbcType="VARCHAR" property="topicReportAddress" />
     <result column="topic_report_name" jdbcType="VARCHAR" property="topicReportName" />
     <result column="topic_score" jdbcType="INTEGER" property="topicScore" />
+    <result column="topic_comment" jdbcType="VARCHAR" property="topicComment" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--
@@ -100,11 +101,7 @@
     id, topic_title, topic_course, topic_semester, topic_type, topic_source, topic_integrated_curriculum, 
     topic_content, topic_requirements, topic_main_difficulties, teacher_name, topic_status, 
     topic_chosen_student, topic_audit_status, topic_assignmentbook_address, topic_assignmentbook_name, 
-    topic_report_address, topic_report_name, topic_score
-  </sql>
-  <sql id="Excel_list">
-
-    id,topic_title,topic_course,topic_chosen_student,topic_score
+    topic_report_address, topic_report_name, topic_score, topic_comment
   </sql>
   <select id="selectByExample" parameterType="com.design.entity.TopicExample" resultMap="BaseResultMap">
     <!--
@@ -164,7 +161,8 @@
       teacher_name, topic_status, topic_chosen_student, 
       topic_audit_status, topic_assignmentbook_address, 
       topic_assignmentbook_name, topic_report_address, 
-      topic_report_name, topic_score)
+      topic_report_name, topic_score, topic_comment
+      )
     values (#{id,jdbcType=INTEGER}, #{topicTitle,jdbcType=VARCHAR}, #{topicCourse,jdbcType=VARCHAR}, 
       #{topicSemester,jdbcType=VARCHAR}, #{topicType,jdbcType=VARCHAR}, #{topicSource,jdbcType=VARCHAR}, 
       #{topicIntegratedCurriculum,jdbcType=VARCHAR}, #{topicContent,jdbcType=VARCHAR}, 
@@ -172,7 +170,8 @@
       #{teacherName,jdbcType=VARCHAR}, #{topicStatus,jdbcType=VARCHAR}, #{topicChosenStudent,jdbcType=VARCHAR}, 
       #{topicAuditStatus,jdbcType=VARCHAR}, #{topicAssignmentbookAddress,jdbcType=VARCHAR}, 
       #{topicAssignmentbookName,jdbcType=VARCHAR}, #{topicReportAddress,jdbcType=VARCHAR}, 
-      #{topicReportName,jdbcType=VARCHAR}, #{topicScore,jdbcType=INTEGER})
+      #{topicReportName,jdbcType=VARCHAR}, #{topicScore,jdbcType=INTEGER}, #{topicComment,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.design.entity.Topic">
     <!--
@@ -238,6 +237,9 @@
       <if test="topicScore != null">
         topic_score,
       </if>
+      <if test="topicComment != null">
+        topic_comment,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -296,6 +298,9 @@
       </if>
       <if test="topicScore != null">
         #{topicScore,jdbcType=INTEGER},
+      </if>
+      <if test="topicComment != null">
+        #{topicComment,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -373,6 +378,9 @@
       <if test="record.topicScore != null">
         topic_score = #{record.topicScore,jdbcType=INTEGER},
       </if>
+      <if test="record.topicComment != null">
+        topic_comment = #{record.topicComment,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -402,7 +410,8 @@
       topic_assignmentbook_name = #{record.topicAssignmentbookName,jdbcType=VARCHAR},
       topic_report_address = #{record.topicReportAddress,jdbcType=VARCHAR},
       topic_report_name = #{record.topicReportName,jdbcType=VARCHAR},
-      topic_score = #{record.topicScore,jdbcType=INTEGER}
+      topic_score = #{record.topicScore,jdbcType=INTEGER},
+      topic_comment = #{record.topicComment,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -468,6 +477,9 @@
       <if test="topicScore != null">
         topic_score = #{topicScore,jdbcType=INTEGER},
       </if>
+      <if test="topicComment != null">
+        topic_comment = #{topicComment,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -494,9 +506,14 @@
       topic_assignmentbook_name = #{topicAssignmentbookName,jdbcType=VARCHAR},
       topic_report_address = #{topicReportAddress,jdbcType=VARCHAR},
       topic_report_name = #{topicReportName,jdbcType=VARCHAR},
-      topic_score = #{topicScore,jdbcType=INTEGER}
+      topic_score = #{topicScore,jdbcType=INTEGER},
+      topic_comment = #{topicComment,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <sql id="Excel_list">
+
+    id,topic_title,topic_course,topic_chosen_student,topic_score
+  </sql>
   <select id="getTopListByname" resultMap="BaseResultMap">
     <!--
       WARNING - @mbggenerated
@@ -539,7 +556,7 @@
   </select>
   <select id="getTopicForExcel" resultMap="BaseResultMap">
     select
-   <include refid="Excel_list"/>
+   <include refid="Excel_list" />
    from topic
    where teacher_name = #{name,jdbcType=VARCHAR}
    and topic_status = 'chosen'

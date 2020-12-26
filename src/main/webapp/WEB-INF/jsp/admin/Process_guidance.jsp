@@ -92,10 +92,11 @@
         }
 
         function formatTitle(val, row) {
-            return "<a target='_self' style='text-decoration:none' href='/articlereportdownload/" + row.id + "'>" + val + "</a>"
+            return "<a target='_self' style='text-decoration:none' href='/Process_guidanceshow/" + row.id + "'>" + val + "</a>"
         }
     </script>
 </head>
+<%--这里是获取了老师自己发布的题目和已经被选择的题目--%>
 <body style="margin: 1px">
 <table id="dg" title="班级信息管理" class="easyui-datagrid"
        fitColumns="true" pagination="true" rownumbers="true"
@@ -116,12 +117,12 @@
     </thead>
 </table>
 <div id="tb">
-<%--    <div>--%>
+    <div>
 <%--        <a href="javascript:openTopicModifyDialog()" class="easyui-linkbutton" iconCls="icon-edit"--%>
 <%--           plain="true">修改</a>--%>
 <%--        <a href="javascript:deleteTopic()" class="easyui-linkbutton" iconCls="icon-remove" plain="true">删除</a>--%>
 <%--        <a href="javascript:batchaddTopic()" class="easyui-linkbutton" iconCls="icon-add" plain="true">批量增加</a>--%>
-<%--    </div>--%>
+    </div>
 </div>
 
 
