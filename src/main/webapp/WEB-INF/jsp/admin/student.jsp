@@ -114,7 +114,7 @@
                             <h2 class="mb-0">
                                 <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
                                         data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Collapsible Group Item #1
+                                    选题
                                 </button>
                             </h2>
                         </div>
@@ -131,14 +131,6 @@
                                     <br>
                                     <button type="button" class="btn btn-light button-style-for-light" onclick="opentable('mytopic')">我的选题</button>
                                     <br>
-                                    <button type="button" class="btn btn-light button-style-for-light" onclick="opentable('report')">报告书上传
-                                    </button>
-                                    <br>
-                                    <button type="button" class="btn btn-light button-style-for-light" onclick="opentable('scoreshow')">成绩查询
-                                    </button>
-                                    <br>
-                                    <button type="button" class="btn btn-light button-style-for-light">Secondary
-                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -150,7 +142,7 @@
                                 <button class="btn btn-link btn-block text-left collapsed" type="button"
                                         data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
                                         aria-controls="collapseTwo">
-                                    Collapsible Group Item #2
+                                    选题操作
                                 </button>
                             </h2>
                         </div>
@@ -158,20 +150,16 @@
                              data-parent="#accordionExample">
                             <div class="card-body">
                                 <div style="width:100%">
-                                    <button type="button" class="btn btn-light button-style-for-light">
-                                        <span data-feather="file"></span>
-                                        学期管理
+                                    <button type="button" class="btn btn-light button-style-for-light"
+                                            onclick="opentable('report')">报告书上传
                                     </button>
                                     <br>
-                                    <button type="button" class="btn btn-light button-style-for-light">学生信息管理</button>
-                                    <br>
-                                    <button type="button" class="btn btn-light button-style-for-light">Secondary
+                                    <button type="button" class="btn btn-light button-style-for-light"
+                                            onclick="opentable('scoreshow')">成绩查询
                                     </button>
                                     <br>
-                                    <button type="button" class="btn btn-light button-style-for-light">Secondary
-                                    </button>
-                                    <br>
-                                    <button type="button" class="btn btn-light button-style-for-light">Secondary
+                                    <button type="button" class="btn btn-light button-style-for-light"
+                                            onclick="opentable('Get_Process_guidance')">指导记录
                                     </button>
                                 </div>
                             </div>
@@ -184,7 +172,7 @@
                                 <button class="btn btn-link btn-block text-left collapsed" type="button"
                                         data-toggle="collapse" data-target="#collapseThree" aria-expanded="false"
                                         aria-controls="collapseThree">
-                                    Collapsible Group Item #3
+                                    个人信息管理
                                 </button>
                             </h2>
                         </div>
@@ -192,9 +180,8 @@
                              data-parent="#accordionExample">
                             <div class="card-body">
                                 <div style="width:100%">
-                                    <button type="button" class="btn btn-light button-style-for-light">
-                                        <span data-feather="file"></span>
-                                        学期管理
+                                    <button type="button" class="btn btn-light button-style-for-light" onclick="opentable('person_information')">
+                                       个人信息查询
                                     </button>
                                     <br>
                                     <button type="button" class="btn btn-light button-style-for-light">学生信息管理</button>

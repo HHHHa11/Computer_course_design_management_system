@@ -1,8 +1,10 @@
 package com.design.controller;
 
 import com.design.entity.Topic;
+import com.design.entity.TopicGuidances;
 import com.design.entity.User;
 import com.design.pojo.MyResult;
+import com.design.service.TopicGuidanceService;
 import com.design.service.TopicService;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,9 @@ public class StudentController {
     private String UPLOAD_PATH;
     @Autowired
     private TopicService topicService;
+    @Autowired
+    private TopicGuidanceService topicGuidanceService;
+
 
     @RequestMapping("/chosen/{topicid}")
     @ResponseBody
@@ -161,6 +166,22 @@ public class StudentController {
         topicService.updateTopic(topic);
 
         return "success";
+
+    }
+
+
+    @RequestMapping(value = "/guidanceinsertlist/{id4}")
+    @ResponseBody
+    public MyResult guidanceInsertList(@PathVariable int id4) {
+        System.out.println(id4);
+
+        MyResult result = new MyResult();
+        List<TopicGuidances> list = topicGuidanceService.getguidanceInsertList(id4);
+        System.out.println(list.get(0).getTopicGuidance());
+        result.setTotal(topicGuidanceService.getguidanceCountByTypeId(id4));
+        result.setRows(list);
+
+        return result;
 
     }
 

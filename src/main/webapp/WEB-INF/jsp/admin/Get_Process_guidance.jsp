@@ -52,7 +52,7 @@
                 return;
             }
             var row = selectedRows[0];
-            window.parent.opentable('teacher/topic/modifyTopic/'+row.id)
+            window.parent.opentable('teacher/topic/modifyTopic/' + row.id)
         }
 
         // function saveTopic() {
@@ -92,15 +92,14 @@
         }
 
         function formatTitle(val, row) {
-            return "<a target='_self' style='text-decoration:none' href='/Process_guidanceshow/" + row.id + "'>" + val + "</a>"
+            return "<a target='_self' style='text-decoration:none' href='/articletopicguidance/" + row.id + "'>" + val + "</a>"
         }
     </script>
 </head>
-<%--这里是获取了老师自己发布的题目和已经被选择的题目--%>
 <body style="margin: 1px">
-<table id="dg" title="过程指导管理" class="easyui-datagrid"
+<table id="dg" title="过程指导查看" class="easyui-datagrid"
        fitColumns="true" pagination="true" rownumbers="true"
-       url="/teacher/topic/assignmentbooklist" fit="true" toolbar="#tb">
+       url="/student/topic/mytopiclist" fit="true" toolbar="#tb">
     <thead>
     <tr>
         <th field="cb" checkbox="true" align="center"></th>
@@ -117,12 +116,12 @@
     </thead>
 </table>
 <div id="tb">
-    <div>
-<%--        <a href="javascript:openTopicModifyDialog()" class="easyui-linkbutton" iconCls="icon-edit"--%>
-<%--           plain="true">修改</a>--%>
-<%--        <a href="javascript:deleteTopic()" class="easyui-linkbutton" iconCls="icon-remove" plain="true">删除</a>--%>
-<%--        <a href="javascript:batchaddTopic()" class="easyui-linkbutton" iconCls="icon-add" plain="true">批量增加</a>--%>
-    </div>
+    <%--    <div>--%>
+    <%--        <a href="javascript:openTopicModifyDialog()" class="easyui-linkbutton" iconCls="icon-edit"--%>
+    <%--           plain="true">修改</a>--%>
+    <%--        <a href="javascript:deleteTopic()" class="easyui-linkbutton" iconCls="icon-remove" plain="true">删除</a>--%>
+    <%--        <a href="javascript:batchaddTopic()" class="easyui-linkbutton" iconCls="icon-add" plain="true">批量增加</a>--%>
+    <%--    </div>--%>
 </div>
 
 

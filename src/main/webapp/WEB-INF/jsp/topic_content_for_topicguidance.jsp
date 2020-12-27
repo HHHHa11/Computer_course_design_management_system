@@ -141,13 +141,7 @@
                         //         '                    </div>\n' +
                         //         '                </li>';
                         // } else {
-                        result += ' <div class="col-3 bg-light p-3 border">'+
-                            '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">\n' +
-                            '  <path d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>\n' +
-                            '</svg>'+'第'+ (i+1) +'次指导意见'+ '<br>'+
-                            '<p>'+article.topicGuidance+'</p>'
-                            '<hr>'+
-                            '</div> ';
+                        result += ' <div>'+'第'+ (i+1) +'次指导意见'+ '<br>'+ article.topicGuidance+'</div> ';
                         // '                    <a class="wrap-img" href="' + '/article/' + article.id + '.html" target="_blank">\n' +
                         // '                        <img src="' + article.blogImage + '">\n' +
                         // '                    </a>\n' +

@@ -95,7 +95,7 @@
             /*首次加载*/
             $.ajaxSettings.async = false;
             //获取文章列表
-            $.post("/teacher/topic/guidanceinsertlist/" + ${id6}, {},
+            $.post("/student/topic/guidanceinsertlist/" + ${id7}, {},
                 function (data) {
                     var articles = data.rows;
                     var length = articles.length;
@@ -141,13 +141,13 @@
                         //         '                    </div>\n' +
                         //         '                </li>';
                         // } else {
-                        result += ' <div class="col-3 bg-light p-3 border">'+
+                        result += ' <div class="col-3 bg-light p-3 border">' +
                             '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">\n' +
                             '  <path d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>\n' +
-                            '</svg>'+'第'+ (i+1) +'次指导意见'+ '<br>'+
-                            '<p>'+article.topicGuidance+'</p>'
-                            '<hr>'+
-                            '</div> ';
+                            '</svg>' + '第' + (i + 1) + '次指导意见' + '<br>' +
+                            '<p>' + article.topicGuidance + '</p>'
+                        '<hr>' +
+                        '</div> ';
                         // '                    <a class="wrap-img" href="' + '/article/' + article.id + '.html" target="_blank">\n' +
                         // '                        <img src="' + article.blogImage + '">\n' +
                         // '                    </a>\n' +
@@ -197,18 +197,15 @@
 <body>
 <a href="javascript:history.back(-1)" class="easyui-linkbutton">返回上一页</a>
 <div class="blog-list"></div>
-<form id="topic_tontent_forstudent_form1">
+<%--<form id="topic_tontent_forstudent_form1">--%>
 
-    <div>
-        <textarea id="topicGuidance" name="topicGuidance" style="height:75px;width: 400px;"></textarea>
-    </div>
-    <a href="javascript:chose()" class="easyui-linkbutton">发布</a>
+<%--    <div>--%>
+<%--        <textarea id="topicGuidance" name="topicGuidance" style="height:75px;width: 400px;"></textarea>--%>
+<%--    </div>--%>
+<%--    <a href="javascript:chose()" class="easyui-linkbutton">发布</a>--%>
 
-    <input type="hidden" id="id" name="id"/>
-</form>
-
-
-
+<%--    <input type="hidden" id="id" name="id"/>--%>
+<%--</form>--%>
 
 
 </body>

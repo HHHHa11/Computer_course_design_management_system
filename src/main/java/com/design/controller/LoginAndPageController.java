@@ -327,6 +327,28 @@ public class LoginAndPageController {
     }
 
 
+    @RequestMapping("/Get_Process_guidance")
+    public String Get_Process_guidance() {
+        return "admin/Get_Process_guidance";
+    }
+
+    @RequestMapping("/articletopicguidance/{id7}")
+    public String showArticleTopicGuidance(@PathVariable int id7, Model model) {
+        if (topicService.getTopicById(id7) == null) {
+            return "error";
+        }
+        model.addAttribute("topic", topicService.getTopicById(id7));
+        return "topic_content_for_Process_guidance";
+    }
+
+    @RequestMapping("/person_information")
+    public String person_information() {
+        return "person_information";
+    }
+
+
+
+
 
 
 
