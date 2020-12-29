@@ -98,7 +98,7 @@
 </head>
 <%--这里是获取了老师自己发布的题目和已经被选择的题目--%>
 <body style="margin: 1px">
-<table id="dg" title="班级信息管理" class="easyui-datagrid"
+<table id="dg" title="任务书管理" class="easyui-datagrid"
        fitColumns="true" pagination="true" rownumbers="true"
        url="/teacher/topic/assignmentbooklist" fit="true" toolbar="#tb">
     <thead>
@@ -110,8 +110,6 @@
         <th field="topicSemester" width="100" align="center">所属学期</th>
         <th field="topicType" width="100" align="center">题目类别</th>
         <th field="topicSource" width="100" align="center">题目来源</th>
-        <th field="topicStatus" width="100" align="center">题目状态</th>
-        <th field="topicAuditStatus" width="100" align="center">题目审核状态</th>
 
     </tr>
     </thead>

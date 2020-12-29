@@ -136,7 +136,7 @@
                                     </button><br>
                                     <button type="button" class="btn btn-light button-style-for-light" onclick="opentable('classmanage')">班级信息管理</button><br>
                                     <button type="button" class="btn btn-light button-style-for-light" onclick="opentable('coursemanage')">课程信息管理</button><br>
-                                    <button type="button" class="btn btn-light button-style-for-light" onclick="opentable()">Secondary</button>
+<%--                                    <button type="button" class="btn btn-light button-style-for-light" onclick="opentable()">Secondary</button>--%>
                                 </div>
                             </div>
                         </div>
@@ -157,58 +157,48 @@
                             <div class="card-body">
                                 <div style="width:100%">
                                     <button type="button" class="btn btn-light button-style-for-light" onclick="opentable('alltopic')">
-                                        <span data-feather="file"></span>
                                       所有课题选择
                                     </button>
                                     <br>
                                     <button type="button" class="btn btn-light button-style-for-light" onclick="opentable('topicaudit')">课题审核</button>
-                                    <br>
-                                    <button type="button" class="btn btn-light button-style-for-light">Secondary
-                                    </button>
-                                    <br>
-                                    <button type="button" class="btn btn-light button-style-for-light">Secondary
-                                    </button>
-                                    <br>
-                                    <button type="button" class="btn btn-light button-style-for-light">Secondary
-                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="card">
-                        <div class="card-header" id="headingThree">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link btn-block text-left collapsed" type="button"
-                                        data-toggle="collapse" data-target="#collapseThree" aria-expanded="false"
-                                        aria-controls="collapseThree">
-                                    Collapsible Group Item #3
-                                </button>
-                            </h2>
-                        </div>
-                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                             data-parent="#accordionExample">
-                            <div class="card-body">
-                                <div style="width:100%">
-                                    <button type="button" class="btn btn-light button-style-for-light">
-                                        <span data-feather="file"></span>
-                                        学期管理
-                                    </button>
-                                    <br>
-                                    <button type="button" class="btn btn-light button-style-for-light">学生信息管理</button>
-                                    <br>
-                                    <button type="button" class="btn btn-light button-style-for-light">Secondary
-                                    </button>
-                                    <br>
-                                    <button type="button" class="btn btn-light button-style-for-light">Secondary
-                                    </button>
-                                    <br>
-                                    <button type="button" class="btn btn-light button-style-for-light">Secondary
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<%--                    <div class="card">--%>
+<%--                        <div class="card-header" id="headingThree">--%>
+<%--                            <h2 class="mb-0">--%>
+<%--                                <button class="btn btn-link btn-block text-left collapsed" type="button"--%>
+<%--                                        data-toggle="collapse" data-target="#collapseThree" aria-expanded="false"--%>
+<%--                                        aria-controls="collapseThree">--%>
+<%--                                    Collapsible Group Item #3--%>
+<%--                                </button>--%>
+<%--                            </h2>--%>
+<%--                        </div>--%>
+<%--                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree"--%>
+<%--                             data-parent="#accordionExample">--%>
+<%--                            <div class="card-body">--%>
+<%--                                <div style="width:100%">--%>
+<%--                                    <button type="button" class="btn btn-light button-style-for-light">--%>
+<%--                                        <span data-feather="file"></span>--%>
+<%--                                        学期管理--%>
+<%--                                    </button>--%>
+<%--                                    <br>--%>
+<%--                                    <button type="button" class="btn btn-light button-style-for-light">学生信息管理</button>--%>
+<%--                                    <br>--%>
+<%--                                    <button type="button" class="btn btn-light button-style-for-light">Secondary--%>
+<%--                                    </button>--%>
+<%--                                    <br>--%>
+<%--                                    <button type="button" class="btn btn-light button-style-for-light">Secondary--%>
+<%--                                    </button>--%>
+<%--                                    <br>--%>
+<%--                                    <button type="button" class="btn btn-light button-style-for-light">Secondary--%>
+<%--                                    </button>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
 
 
             </div>

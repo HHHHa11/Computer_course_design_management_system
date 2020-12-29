@@ -9,6 +9,8 @@
     <link rel="stylesheet" type="text/css"
           href="/static/static-easyui/plugin/jeasyui/themes/icon.css">
     <link rel="stylesheet" type="text/css" href="/static/static-easyui/css/customAdmin.css">
+    <link href="/static/bootstrap-4.5.3-examples/dashboard/dashboard.css" rel="stylesheet">
+    <link href="/static/bootstrap-4.5.3-examples/assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <script type="text/javascript"
             src="/static/static-easyui/plugin/jeasyui/jquery.min.js"></script>
     <script type="text/javascript"
@@ -124,7 +126,7 @@
     </script>
 </head>
 <body style="margin: 1px">
-<table id="dg" title="班级信息管理" class="easyui-datagrid"
+<table id="dg" title="課題審核" class="easyui-datagrid"
        fitColumns="true" pagination="true" rownumbers="true"
        url="/admin/topic/UnAuditList" fit="true" toolbar="#tb">
     <thead>

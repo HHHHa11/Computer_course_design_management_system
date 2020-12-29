@@ -97,7 +97,7 @@
     </script>
 </head>
 <body style="margin: 1px">
-<table id="dg" title="班级信息管理" class="easyui-datagrid"
+<table id="dg" title="题目管理" class="easyui-datagrid"
        fitColumns="true" pagination="true" rownumbers="true"
        url="/teacher/topic/list" fit="true" toolbar="#tb">
     <thead>

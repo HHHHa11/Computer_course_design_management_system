@@ -346,6 +346,13 @@ public class LoginAndPageController {
         return "person_information";
     }
 
+    @RequestMapping("/modifyPassword")
+    public String modifyPassword() {
+        return "modifyPassword";
+    }
+
+
+
 
 
 

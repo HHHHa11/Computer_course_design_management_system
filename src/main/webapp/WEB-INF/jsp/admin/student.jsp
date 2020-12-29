@@ -125,7 +125,6 @@
                             <div class="card-body">
                                 <div style="width:100%">
                                     <button type="button" class="btn btn-light button-style-for-light" onclick="opentable('topicshow')">
-                                        <span data-feather="file"></span>
                                        查看题目
                                     </button>
                                     <br>
@@ -184,16 +183,7 @@
                                        个人信息查询
                                     </button>
                                     <br>
-                                    <button type="button" class="btn btn-light button-style-for-light">学生信息管理</button>
-                                    <br>
-                                    <button type="button" class="btn btn-light button-style-for-light">Secondary
-                                    </button>
-                                    <br>
-                                    <button type="button" class="btn btn-light button-style-for-light">Secondary
-                                    </button>
-                                    <br>
-                                    <button type="button" class="btn btn-light button-style-for-light">Secondary
-                                    </button>
+                                    <button type="button" class="btn btn-light button-style-for-light" onclick="opentable('modifyPassword')">修改密码</button>
                                 </div>
                             </div>
                         </div>

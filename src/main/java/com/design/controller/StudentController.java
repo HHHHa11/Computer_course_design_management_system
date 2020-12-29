@@ -1,23 +1,23 @@
 package com.design.controller;
 
+import com.design.Util.CryptographyUtil;
 import com.design.entity.Topic;
 import com.design.entity.TopicGuidances;
 import com.design.entity.User;
 import com.design.pojo.MyResult;
 import com.design.service.TopicGuidanceService;
 import com.design.service.TopicService;
+import com.design.service.UserService;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.net.URLEncoder;
 import java.util.List;
@@ -25,12 +25,15 @@ import java.util.List;
 @Controller
 @RequestMapping(value = "/student/topic",method= RequestMethod.POST)
 public class StudentController {
+    private final String SALT = "blog";
     @Value("${UPLOAD_PATH}")
     private String UPLOAD_PATH;
     @Autowired
     private TopicService topicService;
     @Autowired
     private TopicGuidanceService topicGuidanceService;
+    @Autowired
+    private UserService userService;
 
 
     @RequestMapping("/chosen/{topicid}")
@@ -184,6 +187,39 @@ public class StudentController {
         return result;
 
     }
+
+    @RequestMapping(value = "/updatePassword/{id5}")
+    @ResponseBody
+    public String updatePassword(@PathVariable int id5, @RequestParam("oldpassword") String oldpassword, @RequestParam("newpassword1") String newpassword1, @RequestParam("newpassword2") String newpassword2, HttpSession session) {
+        System.out.println(oldpassword);
+        System.out.println(newpassword1);
+        System.out.println(newpassword2);
+        System.out.println(((User) session.getAttribute("user")).getPassword());
+
+        String oldpasswordformd5 = CryptographyUtil.md5(oldpassword, SALT);
+        System.out.println(((User) session.getAttribute("user")).getPassword());
+//        如果两个新密码不一样的话，就报错
+        if(newpassword1.equals(newpassword2) == false){
+            System.out.println("newpasswordsame:1");
+            return "newpasswordsame";
+        }else if(oldpassword.equals(newpassword1)){
+            System.out.println("different:1");
+            return "different";
+        }else if (oldpasswordformd5.equals(((User) session.getAttribute("user")).getPassword())){
+            User user = userService.getUserById(id5);
+            user.setPassword(CryptographyUtil.md5(newpassword1, SALT));
+            userService.updateUser(user);
+            return "success";
+
+        }
+//        User user = userService.getUserById(id5);
+
+//        user.setPassword(CryptographyUtil.md5(password, SALT));
+//        userService.updateUser(user);
+        return "false";
+    }
+
+
 
 
 
