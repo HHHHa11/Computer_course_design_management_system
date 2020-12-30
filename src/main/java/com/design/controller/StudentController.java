@@ -40,6 +40,7 @@ public class StudentController {
     @ResponseBody
     public String chosen(@PathVariable Integer topicid){
         Topic topic = topicService.getTopicById(topicid);
+        String topic_course_name = topic.getTopicCourse();
         String topic_status = topic.getTopicStatus();
 //        判断该选题是否被选
         String topic_status_character = "chosen";

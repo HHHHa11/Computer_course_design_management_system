@@ -313,6 +313,18 @@
       <version>2.4</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.16.22</version>
+    </dependency>
+
+    <!--aop-->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-aop</artifactId>
+    </dependency>
+
 <!--&lt;!&ndash;  MyBatis Generator  &ndash;&gt;-->
 <!--    <dependency>-->
 <!--      <groupId>org.mybatis.generator</groupId>-->
