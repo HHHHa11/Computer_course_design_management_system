@@ -52,8 +52,8 @@
                         processData:false,
                         success: function (result) {
                             if (result == "success") {
-                                document.getElementById("topic_status").innerHTML = "题目状态：chosen";
                                 alert("选题成功!");
+                                window.location.reload();
 
                             } else {
                                 alert("选题失败!");

@@ -20,6 +20,8 @@
     <link rel="stylesheet" type="text/css"
           href="/static/static-easyui/css/customAdmin.css">
 
+    <link rel="stylesheet" type="text/css" href="/static/css/ace.min.css">
+
 
     <script type="text/javascript"
             src="/static/static-easyui/js/jquery-3.3.1.min.js"></script>
@@ -34,15 +36,107 @@
 </head>
 <body>
 <a href="javascript:history.back(-1)" class="easyui-linkbutton">返回上一页</a>
-<h1>题目标题：${topic.topicTitle}</h1>
-<h1>所属课程：${topic.topicCourse}</h1>
-<h1>所属学期：${topic.topicSemester}</h1>
-<h1>题目类别：${topic.topicType}</h1>
-<h1>题目来源：${topic.topicSource}</h1>
-<h1>整合课程：${topic.topicIntegratedCurriculum}</h1>
-<h1>题目内容：${topic.topicContent}</h1>
-<h1>题目要求：${topic.topicRequirements}</h1>
-<h1>主要难点：${topic.topicMainDifficulties}</h1>
+<%--<h1>题目标题：${topic.topicTitle}</h1>--%>
+<%--<h1>所属课程：${topic.topicCourse}</h1>--%>
+<%--<h1>所属学期：${topic.topicSemester}</h1>--%>
+<%--<h1>题目类别：${topic.topicType}</h1>--%>
+<%--<h1>题目来源：${topic.topicSource}</h1>--%>
+<%--<h1>整合课程：${topic.topicIntegratedCurriculum}</h1>--%>
+<%--<h1>题目内容：${topic.topicContent}</h1>--%>
+<%--<h1>题目要求：${topic.topicRequirements}</h1>--%>
+<%--<h1>主要难点：${topic.topicMainDifficulties}</h1>--%>
+
+<div class="profile-user-info profile-user-info-striped">
+    <div class="profile-info-row">
+        <div class="profile-info-name">题目标题</div>
+
+        <div class="profile-info-value">
+            <span class="editable" id="username">${topic.topicTitle}</span>
+        </div>
+    </div>
+
+    <div class="profile-info-row">
+        <div class="profile-info-name">所属课程</div>
+
+        <div class="profile-info-value">
+            <span class="editable" id="country">${topic.topicCourse}</span>
+        </div>
+    </div>
+
+    <div class="profile-info-row">
+        <div class="profile-info-name">所属学期</div>
+
+        <div class="profile-info-value">
+            <span class="editable" id="age">${topic.topicSemester}</span>
+        </div>
+    </div>
+
+    <div class="profile-info-row">
+        <div class="profile-info-name">题目类别</div>
+
+        <div class="profile-info-value">
+            <span class="editable" id="signup">${topic.topicType}</span>
+        </div>
+    </div>
+
+    <div class="profile-info-row">
+        <div class="profile-info-name">题目来源</div>
+
+        <div class="profile-info-value">
+            <span class="editable" id="login">${topic.topicSource}</span>
+        </div>
+    </div>
+
+    <div class="profile-info-row">
+        <div class="profile-info-name">整合课程</div>
+
+        <div class="profile-info-value">
+            <span class="editable" id="about">${topic.topicIntegratedCurriculum}</span>
+        </div>
+    </div>
+
+    <div class="profile-info-row">
+        <div class="profile-info-name">题目内容</div>
+
+        <div class="profile-info-value">
+            <span class="editable" id="about1">${topic.topicContent}</span>
+        </div>
+    </div>
+
+    <div class="profile-info-row">
+        <div class="profile-info-name">题目要求</div>
+
+        <div class="profile-info-value">
+            <span class="editable" id="about2">${topic.topicRequirements}</span>
+        </div>
+    </div>
+
+    <div class="profile-info-row">
+        <div class="profile-info-name">主要难点</div>
+
+        <div class="profile-info-value">
+            <span class="editable" id="about3">${topic.topicMainDifficulties}</span>
+        </div>
+    </div>
+
+<%--    <div class="profile-info-row">--%>
+<%--        <div class="profile-info-name">题目状态</div>--%>
+
+<%--        <div class="profile-info-value">--%>
+<%--            <span class="editable" id="about4">${topic.topicStatus}</span>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+
+<%--    <div class="profile-info-row">--%>
+<%--        <div class="profile-info-name">报告书</div>--%>
+
+<%--        <div class="profile-info-value">--%>
+<%--            <span class="editable" id="about5">${topic.topicReportName}</span>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+
+
+</div>
 
 </body>
 </html>

@@ -110,7 +110,7 @@
         <th field="topicType" width="100" align="center">题目类别</th>
         <th field="topicSource" width="100" align="center">题目来源</th>
         <th field="topicStatus" width="100" align="center">题目状态</th>
-        <th field="topicAuditStatus" width="100" align="center">题目审核状态</th>
+<%--        <th field="topicAuditStatus" width="100" align="center">题目审核状态</th>--%>
 
     </tr>
     </thead>

@@ -19,6 +19,7 @@
           href="/static/static-easyui/plugin/mdeditor/css/editormd.min.css">
     <link rel="stylesheet" type="text/css"
           href="/static/static-easyui/css/customAdmin.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/ace.min.css">
 
 
     <script type="text/javascript"
@@ -151,9 +152,19 @@
             </div>
         </div>
 
+        <div class="profile-info-row">
+            <div class="profile-info-name">任务书</div>
+
+            <div class="profile-info-value">
+                <span class="editable" id="about5">${topic.topicAssignmentbookName}</span>
+            </div>
+        </div>
+
+
 
     </div>
-    <div >任务书：${topic.topicAssignmentbookName}</div>
+<%--    <div >任务书：${topic.topicAssignmentbookName}</div>--%>
+
     <input type="submit" value="下载">
     <input type="hidden" id="id" name="id"/>
 

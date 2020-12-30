@@ -19,6 +19,7 @@
           href="/static/static-easyui/plugin/mdeditor/css/editormd.min.css">
     <link rel="stylesheet" type="text/css"
           href="/static/static-easyui/css/customAdmin.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/ace.min.css">
 
 
     <script type="text/javascript"
@@ -90,18 +91,117 @@
     <input type="submit" value="下载任务书">
 
 </form>
-    <div>题目标题：${topic.topicTitle}</div>
-    <div>所属课程：${topic.topicCourse}</div>
-    <div>所属学期：${topic.topicSemester}</div>
-    <div>题目类别：${topic.topicType}</div>
-    <div>题目来源：${topic.topicSource}</div>
-    <div>整合课程：${topic.topicIntegratedCurriculum}</div>
-    <div>题目内容：${topic.topicContent}</div>
-    <div>题目要求：${topic.topicRequirements}</div>
-    <div>主要难点：${topic.topicMainDifficulties}</div>
-    <div id="topic_status">题目状态：${topic.topicStatus}</div>
-    <div >报告书：${topic.topicReportName}</div>
-    <div>评语:${topic.topicComment}</div>
+<%--    <div>题目标题：${topic.topicTitle}</div>--%>
+<%--    <div>所属课程：${topic.topicCourse}</div>--%>
+<%--    <div>所属学期：${topic.topicSemester}</div>--%>
+<%--    <div>题目类别：${topic.topicType}</div>--%>
+<%--    <div>题目来源：${topic.topicSource}</div>--%>
+<%--    <div>整合课程：${topic.topicIntegratedCurriculum}</div>--%>
+<%--    <div>题目内容：${topic.topicContent}</div>--%>
+<%--    <div>题目要求：${topic.topicRequirements}</div>--%>
+<%--    <div>主要难点：${topic.topicMainDifficulties}</div>--%>
+<%--    <div id="topic_status">题目状态：${topic.topicStatus}</div>--%>
+<%--    <div >报告书：${topic.topicReportName}</div>--%>
+<%--    <div>评语:${topic.topicComment}</div>--%>
+<div class="profile-user-info profile-user-info-striped">
+    <div class="profile-info-row">
+        <div class="profile-info-name">题目标题</div>
+
+        <div class="profile-info-value">
+            <span class="editable" id="username">${topic.topicTitle}</span>
+        </div>
+    </div>
+
+    <div class="profile-info-row">
+        <div class="profile-info-name">所属课程</div>
+
+        <div class="profile-info-value">
+            <span class="editable" id="country">${topic.topicCourse}</span>
+        </div>
+    </div>
+
+    <div class="profile-info-row">
+        <div class="profile-info-name">所属学期</div>
+
+        <div class="profile-info-value">
+            <span class="editable" id="age">${topic.topicSemester}</span>
+        </div>
+    </div>
+
+    <div class="profile-info-row">
+        <div class="profile-info-name">题目类别</div>
+
+        <div class="profile-info-value">
+            <span class="editable" id="signup">${topic.topicType}</span>
+        </div>
+    </div>
+
+    <div class="profile-info-row">
+        <div class="profile-info-name">题目来源</div>
+
+        <div class="profile-info-value">
+            <span class="editable" id="login">${topic.topicSource}</span>
+        </div>
+    </div>
+
+    <div class="profile-info-row">
+        <div class="profile-info-name">整合课程</div>
+
+        <div class="profile-info-value">
+            <span class="editable" id="about">${topic.topicIntegratedCurriculum}</span>
+        </div>
+    </div>
+
+    <div class="profile-info-row">
+        <div class="profile-info-name">题目内容</div>
+
+        <div class="profile-info-value">
+            <span class="editable" id="about1">${topic.topicContent}</span>
+        </div>
+    </div>
+
+    <div class="profile-info-row">
+        <div class="profile-info-name">题目要求</div>
+
+        <div class="profile-info-value">
+            <span class="editable" id="about2">${topic.topicRequirements}</span>
+        </div>
+    </div>
+
+    <div class="profile-info-row">
+        <div class="profile-info-name">主要难点</div>
+
+        <div class="profile-info-value">
+            <span class="editable" id="about3">${topic.topicMainDifficulties}</span>
+        </div>
+    </div>
+
+    <div class="profile-info-row">
+        <div class="profile-info-name">题目状态</div>
+
+        <div class="profile-info-value">
+            <span class="editable" id="about4">${topic.topicStatus}</span>
+        </div>
+    </div>
+
+    <div class="profile-info-row">
+        <div class="profile-info-name">报告书</div>
+
+        <div class="profile-info-value">
+            <span class="editable" id="about5">${topic.topicReportName}</span>
+        </div>
+    </div>
+
+    <div class="profile-info-row">
+        <div class="profile-info-name">评语</div>
+
+        <div class="profile-info-value">
+            <span class="editable" id="about6">${topic.topicComment}</span>
+        </div>
+    </div>
+
+
+</div>
 <form id="topic_tontent_forstudent_form1">
 
     <div>

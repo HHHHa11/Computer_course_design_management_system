@@ -78,12 +78,14 @@ public class TeacherTopicController {
         String topic_Audit_Status = "unAudit";
         String topic_assignmentbook_name = "null";
         String topic_report_name = "null";
+        String topic_topicComment = "null";
 //        将topic还没有的内容填满
         topic.setTopicAuditStatus(topic_Audit_Status);
         topic.setTeacherName(teacher_Name);
         topic.setTopicStatus(topic_status);
         topic.setTopicAssignmentbookName(topic_assignmentbook_name);
         topic.setTopicReportName(topic_report_name);
+        topic.setTopicComment(topic_topicComment);
 
 //
 //        //补全blog属性
