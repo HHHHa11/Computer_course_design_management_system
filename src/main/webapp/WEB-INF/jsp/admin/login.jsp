@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.1.1">
-    <title>Floating labels example · Bootstrap</title>
+    <title>用户登录</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/floating-labels/">
 
@@ -58,29 +58,27 @@
     <div class="text-center mb-4">
         <img class="mb-4" src="/static/bootstrap-4.5.3-examples/assets/brand/bootstrap-solid.svg" alt="" width="72"
              height="72">
-        <h1 class="h3 mb-3 font-weight-normal">Floating labels</h1>
-        <p>Build form controls with floating labels via the <code>:placeholder-shown</code> pseudo-element. <a
-                href="https://caniuse.com/#feat=css-placeholder-shown">Works in latest Chrome, Safari, Firefox, and IE
-            10/11 (prefixed).</a></p>
+        <h1 class="h3 mb-3 font-weight-normal">用户登录</h1>
+        <p></a></p>
     </div>
 <%--这里使用了input type="email"进行判别是否是邮箱的格式--%>
 <%--  <label for=""> 中for的作用是和哪个表单元素绑定 --%>
 <%--    <label for="inputEmail">则是与<input type="text" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>来进行绑定--%>
     <div class="form-label-group">
         <input type="text" id="username" name="username" class="form-control" placeholder="Email address" required autofocus>
-        <label for="username">Username</label>
+        <label for="username">请输入用户名</label>
     </div>
 
     <div class="form-label-group">
         <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
-        <label for="password">Password</label>
+        <label for="password">请输入密码</label>
     </div>
 
     <div>
-        <h6><a href="/index">index</a></h6>
+        <h6><a href="/index">首页</a></h6>
         <span><font color="red" id="error">${errorInfo }</font></span>
     </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
     <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2020</p>
 </form>
 </body>

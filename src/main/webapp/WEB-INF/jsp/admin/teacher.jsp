@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.1.1">
-    <title>Dashboard Template · Bootstrap</title>
+    <title>教师管理页面</title>
 
     <link rel="canonical" href="/static/bootstrap-4.5.3-examples/dashboard/index.html">
 
