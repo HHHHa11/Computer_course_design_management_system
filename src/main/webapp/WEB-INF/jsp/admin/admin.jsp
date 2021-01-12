@@ -128,7 +128,6 @@
                             <div class="card-body">
                                 <div style="width:100%">
                                     <button type="button" class="btn btn-light button-style-for-light" onclick="opentable('semestermanage')" >
-                                        <span data-feather="file"></span>
                                         学期管理
                                     </button><br>
                                     <button type="button" class="btn btn-light button-style-for-light" onclick="opentable('usermanage')">

@@ -126,7 +126,7 @@
     </script>
 </head>
 <body style="margin: 1px">
-<table id="dg" title="課題審核" class="easyui-datagrid"
+<table id="dg" title="课题审核" class="easyui-datagrid"
        fitColumns="true" pagination="true" rownumbers="true"
        url="/admin/topic/UnAuditList" fit="true" toolbar="#tb">
     <thead>
